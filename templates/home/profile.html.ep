@@ -1,0 +1,37 @@
+% layout 'administration';
+
+% content_for 'page_title' => begin
+<h1>User Profile <small>show or edit you informations</small></h1>
+% end
+
+<form method="post">
+    <!-- div class="form-group">
+        <label>Avatar</label>
+        <p><a href="#"><i class="icon-picture"></i>&nbsp;Click here to change your profile image</a></p>
+    </div -->
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" value="<%= $model? $model->column('name'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" value="<%= $model? $model->column('email'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label>Change Password</label>
+        <p><a href="#"><i class="icon-lock"></i>&nbsp;Click here to change your password</a></p>
+    </div>
+    <div class="form-group">
+        <label>About Me</label>
+        <textarea name="about" class="form-control"><%= $model? $model->column('about') : '' %></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger"><i class="icon-save"></i>&nbsp;Save</button>
+    <a href="<%= url_for '/dashboard' %>" class="btn btn-default"><i class="icon-remove"></i>&nbsp;Cancel</a>
+    <div class="<%= $message->{class} || '' %>"><%= $message->{text} || '' %></div>
+</form>
+
+<!-- div>
+    <a href="<%= url_for '/user' %>" class="btn btn-danger"><i class="icon-user icon-3x"></i><br />User Management</a>&nbsp;
+    <a href="<%= url_for '/entry' %>" class="btn btn-danger"><i class="icon-list icon-3x"></i><br />Entry Management</a>&nbsp;
+</div -->
+

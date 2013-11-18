@@ -1,0 +1,9 @@
+% layout 'help';
+
+% content_for 'page_title' => begin
+<h1> Entity Help <small class="text-muted"> help file of entities </small> </h1>
+% end
+
+<h3>Creating a new Entity</h3>
+<p>Lorem ipsum dolor sit amet</p>
+<h3>Editing Entities</h3>

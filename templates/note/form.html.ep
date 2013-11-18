@@ -1,0 +1,31 @@
+% layout 'administration';
+% use BackWrite::Model;
+
+% content_for 'page_title' => begin
+<h1>Note Form <small>create or edit a note</small></h1>
+% end
+
+<div class="well well-sm text-right">
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;Back</a>&nbsp;
+    <a href="<%= url_for '/note/list' %>" class="btn btn-danger btn-xs"><i class="icon-list"></i>&nbsp;Back to List</a>&nbsp;
+    <a href="<%= url_for '/help/note' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;Help</a>&nbsp;
+</div>
+<br />
+<form method="post">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" value="<%= $model? $model->column('title'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label>Content</label>
+        <textarea name="content" class="form-control" rows="8"><%= $model? $model->column('content'): '' %></textarea>
+    </div>
+    <div class="form-group">
+        <label>Tags</label>
+        <input type="text" name="tags" class="form-control" value="<%= $model? $model->column('tags'): '' %>" />
+        <small class="text-muted">Type tags separated by comma like example: foo, bar, baz</small>
+    </div>
+    <button type="submit" class="btn btn-danger"><i class="icon-save"></i>&nbsp;Save</button>
+    <a href="<%= url_for '/note/list' %>" class="btn btn-default"><i class="icon-remove"></i>&nbsp;Cancel</a>
+    <div class="<%= $message->{class} || '' %>"><%= $message->{text} || '' %></div>
+</form>

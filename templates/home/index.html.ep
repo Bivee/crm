@@ -1,0 +1,9 @@
+% layout 'default';
+<h1>Index bitch</h1>
+<div class="container">
+% if ($list) {
+%   for my $item (@$list){
+        <p><a href="<%= url_for '/page/'. $item->column('slug') %>"><%= $item->column('title') %></a></p>
+%   }
+% }
+</div>

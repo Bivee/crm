@@ -1,0 +1,36 @@
+% layout 'administration';
+
+% content_for 'page_title' => begin
+<h1>Note List <small>list of notes</small></h1>
+% end
+
+<div class="well well-sm text-right">
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;Back</a>&nbsp;
+    <a href="<%= url_for '/note/create' %>" class="btn btn-danger btn-xs"><i class="icon-plus"></i>&nbsp;Create New</a>&nbsp;
+    <a href="<%= url_for '/help/note' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;Help</a>&nbsp;
+</div>
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:200px">Action</th>
+            <th>Title</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody>
+% if ($list){
+%     for my $item (@$list){
+        <tr>
+            <td>
+                <a href="<%= url_for '/note/edit/'. $item->column('id') %>" title="edit note" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+                <a href="<%= url_for '/note/remove/'. $item->column('id') %>" title="remove note" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+            </td>
+            <td><a href="<%= url_for '/note/view/'. $item->column('id') %>"title="view note details" class="btn btn-link"><%= $item->column('title') %></a></td>
+            <td><%= $item->column('created') %></td>
+        </tr>
+%     }
+% }
+    </tbody>
+</table>

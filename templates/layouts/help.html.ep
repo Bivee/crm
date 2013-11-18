@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Bivee CRM</title>
+
+    <link href="<%= url_for '/css/font-awesome.css' %>" rel="stylesheet">
+    <link href="<%= url_for '/css/bootstrap.css' %>" rel="stylesheet" type="text/css" />
+
+    <script src="<%= url_for '/js/jquery-1.9.1.min.js' %>"></script>
+    <script src="<%= url_for '/js/bootstrap.js' %>"></script>
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<%= url_for '/dashboard' %>" style="background-image:url(<%= url_for '/img/logo.png' %>);background-position:center left;background-repeat:no-repeat;padding-left:35px;">
+            &nbsp;Bivee CRM
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="<%= url_for '/profile' %>"><i class="icon-user"></i>&nbsp;User Profile</a></li>
+            <li><a href="<%= url_for '/account/signout' %>"><i class="icon-signout"></i>&nbsp;Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;">&nbsp;</div>
+
+    <div class="container" style="margin-top:20px;">
+        <div class="page-header">
+            <%= content_for 'page_title' %>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a href="<%= url_for '/help/entity' %>" class="list-group-item"><i class="icon-male"></i>&nbsp;Entities</a>
+                    <a href="<%= url_for '/help/project' %>" class="list-group-item"><i class="icon-list-alt"></i>&nbsp;Projects</a>
+                    <a href="<%= url_for '/help/task' %>" class="list-group-item"><i class="icon-check"></i>&nbsp;Tasks</a>
+                    <a href="<%= url_for '/help/user' %>" class="list-group-item"><i class="icon-user"></i>&nbsp;Users</a>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <%= content %> 
+            </div>
+        </div>
+    </div>
+
+  
+  <div class="container" style="margin-top:20px;">
+    <p class="text-center"><img src="/img/logo_small.png"><br />
+      <small class="muted">Desenvolvido pela empresa <a href="#">Bivee</a></small></p>
+  </div>
+  
+</body>
+</html>

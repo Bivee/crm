@@ -1,0 +1,53 @@
+=pod
+
+=head1 Bivee CRM
+
+Bivee CRM(under high development) is a simple CRM solution implemented using 
+Perl 5.
+
+
+=head3 Who can use it?
+
+Anyone can download a copy of this software, install on server and use!
+
+
+=head3 What do I need to take to install then?
+
+=over
+
+=item Perl 5.10+
+
+=item Mojolicious 4+ (and some plugins)
+
+=item ObjectDB ORM
+
+=item DBI driver for your favorite DB
+
+=back
+
+
+=head3 How can I test/run?
+
+You can use L<morbo> that is an development perl server for mojolicious to run
+L<Eureca> on your machine:
+
+    $ morbo crm/index.pl
+
+or you can use L<hipnotoad> for production deployment.
+
+
+=head3 Author
+
+2013 (c) Bivee
+
+L<http://bivee.com.br>
+
+
+=head3 Copyright and License
+
+This software is copyright (c) 2013 by Bivee.
+
+This is a free software; you can redistribute it and/or modify it under the same terms of Perl 5 programming 
+languagem system itself.
+
+=cut

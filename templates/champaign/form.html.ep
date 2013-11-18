@@ -1,0 +1,56 @@
+% layout 'administration';
+% use BackWrite::I18N;
+% my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+
+% content_for 'page_title' => begin
+<h1><%== $l->key('lbl_champaign_form')%> <small><%== $l->key('lbl_champaign_form_subtitle')%></small></h1>
+% end
+
+<div class="well well-sm text-right">
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== $l->key('btn_back') %></a>&nbsp;
+    <a href="<%= url_for '/champaign/list' %>" class="btn btn-danger btn-xs"><i class="icon-list"></i>&nbsp;<%== $l->key('btn_back_list')%></a>&nbsp;
+    <a href="<%= url_for '/help/champaign' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;<%== $l->key('btn_help') %></a>&nbsp;
+</div>
+<br />
+<form method="post">
+    <div class="form-group">
+        <label><%== $l->key('lbl_name') %></label>
+        <input type="text" name="name" class="form-control" value="<%= $model? $model->column('name'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_description') %></label>
+        <textarea name="description" class="form-control" rows="3"><%= $model? $model->column('description'): '' %></textarea>
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_status') %></label>
+        <select name="status" class="form-control">
+            <option value="0"><%== $l->key('lbl_default')%></option>
+% for my $item ( ('open', 'closed', 'waiting', 'development', 'analysis', 'aborted', 'finished') ){
+            <option value="<%= $item %>" <%= ($model->column('status') eq $item? 'selected': '') if $model %> >
+                <%= $item %>
+            </option>
+% }
+        </select>
+        <!-- input type="text" name="status" class="form-control" value="<%= $model? $model->column('status'): '' %>" / -->
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_start_date') %></label>
+        <input type="text" name="start" class="form-control" value="<%= $model? $model->column('start'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_end_date') %></label>
+        <input type="text" name="finish" class="form-control" value="<%= $model? $model->column('finish'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_cost') %></label>
+        <input type="text" name="cost" class="form-control" value="<%= $model? $model->column('cost'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label class="checkbox">
+            <input type="checkbox" name="finished" class="form-control" value="1" <%= ($model && $model->column('finished'))? 'checked': '' %> /> <%== $l->key('lbl_champaign_active') %>
+        </label>
+    </div>
+    <button type="submit" class="btn btn-danger"><i class="icon-save"></i>&nbsp;Save</button>
+    <a href="<%= url_for '/project/list' %>" class="btn btn-default"><i class="icon-remove"></i>&nbsp;Cancel</a>
+    <div class="<%= $message->{class} || '' %>"><%= $message->{text} || '' %></div>
+</form>

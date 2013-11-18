@@ -1,0 +1,45 @@
+% layout 'administration';
+% use BackWrite::I18N { default => 'en' };
+% my $l = BackWrite::I18N->load( current_user->column('lang') || 'eng' );
+
+% content_for 'page_title' => begin
+<h1><%== $l->key('lbl_contact_list')%> <small><%== $l->key('lbl_contact_list_subtitle')%></small></h1>
+% end
+
+<div class="well well-sm text-right">
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;">
+        <i class="icon-arrow-left"></i>&nbsp;<%== $l->key('btn_back')%></a>&nbsp;
+    <a href="<%= url_for '/contact/create' %>" class="btn btn-danger btn-xs">
+        <i class="icon-upload"></i>&nbsp;<%== $l->key('btn_import_contacts')%></a>&nbsp;
+    <a href="<%= url_for '/contact/create' %>" class="btn btn-danger btn-xs">
+        <i class="icon-plus"></i>&nbsp;<%== $l->key('btn_create_new')%></a>&nbsp;
+    <a href="<%= url_for '/help/contact' %>" class="btn btn-danger btn-xs">
+        <i class="icon-question"></i>&nbsp;<%== $l->key('btn_help')%></a>&nbsp;
+</div>
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:200px"><%== $l->key('lbl_action')%></th>
+            <th><%== $l->key('lbl_name')%></th>
+            <th><%== $l->key('lbl_type')%></th>
+            <th><%== $l->key('lbl_created')%></th>
+        </tr>
+    </thead>
+    <tbody>
+% if ($list){
+%     for my $item (@$list){
+        <tr>
+            <td>
+                <a href="<%= url_for '/contact/edit/'. $item->column('id') %>" title="<%== $l->key('ttp_edit_contact')%>" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+                <a href="<%= url_for '/contact/remove/'. $item->column('id') %>" title="<%== $l->key('ttp_remove_contact')%>" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+            </td>
+            <td><a href="<%= url_for '/contact/view/'. $item->column('id') %>" title="view entity details" class="btn btn-link"><%= $item->column('name') %></a></td>
+            <td><span class="badge badge-primary"><%= $item->column('type') %></span></td>
+            <td><%= $item->column('created') %></td>
+        </tr>
+%     }
+% }
+    </tbody>
+</table>

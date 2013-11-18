@@ -1,0 +1,163 @@
+% layout 'administration';
+% use BackWrite::I18N { default => 'en' };
+% my $l = BackWrite::I18N->load( current_user->column('lang') || 'en');
+
+% content_for 'page_title' => begin
+<h1><%== $l->key('lbl_dashboard')%> <small><%== $l->key('lbl_dashboard_subtitle')%></small></h1>
+% end
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="icon-male"></i>&nbsp;<%== $l->key('lbl_last_contacts') %> <a href="#" class="btn btn-default btn-xs" style="float:right;"><%== $l->key('lbl_show_all') %></a></h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5>Leis Municipais <small class="text-muted">12/11/2013 as 12:14</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Prefeitura de Curitiba <small class="text-muted">12/11/2013 as 12:15</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Prefeitura de São Paulo <small class="text-muted">12/11/2013 as 12:15</small></h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="icon-list-alt"></i>&nbsp;<%== $l->key('lbl_last_projects') %> <a href="#" class="btn btn-default btn-xs" style="float:right;"><%== $l->key('lbl_show_all') %></a></h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5>Atualiza&ccedil;&atilde;o do Banco <small class="text-muted">12/11/2013 as 14:27</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Dashboard usu&aacute;rios <small class="text-muted">12/11/2013 as 14:31</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Backups automatizados <small class="text-muted">12/11/2013 as 14:35</small></h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="icon-check"></i>&nbsp;<%== $l->key('lbl_last_tasks') %> <a href="#" class="btn btn-default btn-xs" style="float:right;"><%== $l->key('lbl_show_all') %></a></h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5>Downaload Ubuntu Server <br><small class="label label-default">todo</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Replicar ambiente em VM <br><small class="label label-default">todo</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Testar modulo pagamento <br><small class="label label-default">todo</small></h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><%== $l->key('LBL_LAST_ACTS') %> <a href="#" class="btn btn-default btn-xs" style="float:right;"><%== $l->key('LBL_SHOW_ALL') %></a></h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h5>Daniel Vinciguerra, cadastrou um contato <small class="text-muted">12/11/2013 as 12:00</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Daniel Vinciguerra, cadastrou um contato <small class="text-muted">12/11/2013 as 12:00</small></h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Daniel Vinciguerra, cadastrou um contato <small class="text-muted">12/11/2013 as 12:00</small></h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div -->
+<!-- div class="row">
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <h1 class="text-center"><i class="icon-male icon-2x"></i></h1>
+            <div class="caption">
+                <h4>Entity</h4>
+                <p>
+                    <a href="<%= url_for '/entity/create' %>" class="btn btn-danger btn-xs" role="button">Create new</a>&nbsp;
+                    <a href="<%= url_for '/entity/list' %>" class="btn btn-danger btn-xs" role="button">List All</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <h1 class="text-center"><i class="icon-list-alt icon-2x"></i></h1>
+            <div class="caption">
+                <h4>Project</h4>
+                <p>
+                    <a href="<%= url_for '/project/create' %>" class="btn btn-danger btn-xs" role="button">Create new</a>&nbsp;
+                    <a href="<%= url_for '/project/list' %>" class="btn btn-danger btn-xs" role="button">List All</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <h1 class="text-center"><i class="icon-user icon-2x"></i></h1>
+            <div class="caption">
+                <h4>User</h4>
+                <p>
+                    <a href="<%= url_for '/user/create' %>" class="btn btn-danger btn-xs" role="button">Create new</a>&nbsp;
+                    <a href="<%= url_for '/user/list' %>" class="btn btn-danger btn-xs" role="button">List All</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div -->
+

@@ -1,0 +1,159 @@
+% layout 'administration';
+% use BackWrite::I18N;
+% use BackWrite::Model;
+% my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+
+% content_for 'page_title' => begin
+<h1><%== $l->key('lbl_contact_form')%> <small><%== $l->key('lbl_contact_form_subtitle')%></small></h1>
+% end
+
+<div class="well well-sm text-right">
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== $l->key('btn_back')%></a>&nbsp;
+    <a href="<%= url_for '/contact/list' %>" class="btn btn-danger btn-xs"><i class="icon-list"></i>&nbsp;<%== $l->key('btn_back_list')%></a>&nbsp;
+    <a href="<%= url_for '/help/contact' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;<%== $l->key('btn_help')%></a>&nbsp;
+</div>
+<br />
+<form method="post">
+    <div class="form-group">
+        <label><%== $l->key('lbl_name')%></label>
+        <input type="text" name="name" class="form-control" value="<%= $model? $model->column('name'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_description')%></label>
+        <textarea name="description" class="form-control" rows="3"><%= $model? $model->column('description'): '' %></textarea>
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_job')%></label>
+        <input type="text" name="job" class="form-control" value="<%= $model? $model->column('job'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_company')%></label>
+        <input type="text" name="company" class="form-control" value="<%= $model? $model->column('company'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_street')%></label>
+        <textarea name="street" class="form-control" rows="2"><%= $model? $model->column('street'): '' %></textarea>
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_city')%></label>
+        <input type="text" name="city" class="form-control" value="<%= $model? $model->column('city'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_state')%></label>
+        <select name="state" class="form-control">
+% for my $item ( ('SP', 'RJ', 'SC', 'MG') ){
+            <option value="<%= $item %>"><%= ucfirst $item %></option>
+% }        
+        </select>
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_zip')%></label>
+        <input type="text" name="zip" class="form-control" value="<%= $model? $model->column('zip'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_contact_type')%></label>
+        <select name="type" class="form-control">
+            <option value="0"><%== $l->key('lbl_default')%></option>
+% for my $item ( keys %{$l->key('lst_contact_type')} ){
+            <option value="<%= $item %>"><%== $l->key('lst_contact_type')->{$item} %></option>
+% }        
+        </select>
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_email')%></label>
+        <input type="text" name="email" class="form-control" value="<%= $model? $model->column('email'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_website')%></label>
+        <input type="text" name="website" class="form-control" value="<%= $model? $model->column('website'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_phone')%></label>
+        <input type="text" name="phone" class="form-control" value="<%= $model? $model->column('phone'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label><%== $l->key('lbl_mobile')%></label>
+        <input type="text" name="mobile" class="form-control" value="<%= $model? $model->column('mobile'): '' %>" />
+    </div>
+    <div class="form-group">
+        <label class="checkbox">
+            <input type="checkbox" name="active" class="form-control" value="1" <%= ($model && $model->column('active'))? 'checked': '' %> /> <%== $l->key('lbl_contact_active')%>
+        </label>
+    </div>
+    <button type="submit" class="btn btn-danger"><i class="icon-save"></i>&nbsp;<%== $l->key('btn_save')%></button>
+    <a href="<%= url_for '/contact/list' %>" class="btn btn-default"><i class="icon-remove"></i>&nbsp;<%== $l->key('btn_cancel')%></a>
+    <div class="<%= $message->{class} || '' %>"><%= $message->{text} || '' %></div>
+</form>
+
+<!-- Modal Company -->
+<div class="modal fade" id="model-company" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add New Company</h4>
+      </div>
+      <div class="modal-body">
+          <form id="form-company" method="POST">
+              <div class="form-group">
+                  <label>Company Name</label>
+                  <input type="text" name="name" class="form-control" />
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="btn-addcompany" type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $('#btn-addcompany').click(function(e){
+            e.stopPropagation();
+
+            var c = new CompanyModel({
+                model   : 'model-company',
+                refresh : 'ddl-company',
+            });
+            c.exec('create', 'teste do amor')
+        });
+
+        var CompanyModel = function(args) {
+            this._init(args);
+        } || {};
+        CompanyModel.prototype = {
+            _init:function(args){
+                this._refresh = args.refresh;
+            },
+            _model: undefined,
+            _refresh: undefined,
+
+            on_finish:function(){
+                var $self = this;
+                if($self._refresh){
+                    alert($self._refresh);
+                }
+            }, 
+
+            create:function(form){
+                alert('test of love ' + this._get_form());
+            },
+
+            exec:function(func, args){
+                var res;
+                if(func == 'create'){ res = this.create(args); }
+                if(func == 'update'){ res = this.update(args); }
+                if(func == 'remove'){ res = this.remove(args); }
+                if(func == 'count'){ res = this.count(); }
+                if(func == 'list'){ res = this.list(); }
+            },
+
+            _get_form:function(){
+                return $('#form-company').serialize();
+            }
+        };
+    });
+</script>

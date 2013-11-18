@@ -1,0 +1,46 @@
+% layout 'administration';
+% use BackWrite::I18N;
+% my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+
+% content_for 'page_title' => begin
+<h1><%== $l->key('lbl_champaign_list') %> <small><%== $l->key('lbl_champaign_list_subtitle') %></small></h1>
+% end
+
+<div class="well well-sm text-right">
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== $l->key('btn_back') %></a>&nbsp;
+    <a href="<%= url_for '/champaign/create' %>" class="btn btn-danger btn-xs"><i class="icon-plus"></i>&nbsp;<%== $l->key('btn_create_new') %></a>&nbsp;
+    <a href="<%= url_for '/help/champaign' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;<%== $l->key('btn_help') %></a>&nbsp;
+</div>
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:200px"><%== $l->key('lbl_action') %></th>
+            <th><%== $l->key('lbl_name') %></th>
+            <th><%== $l->key('lbl_finished') %></th>
+            <th><%== $l->key('lbl_created') %></th>
+        </tr>
+    </thead>
+    <tbody>
+% if ($list){
+%     for my $item (@$list){
+        <tr>
+            <td>
+                <a href="<%= url_for '/champaign/edit/'. $item->column('id') %>" title="edit champaign" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+                <a href="<%= url_for '/champaign/remove/'. $item->column('id') %>" title="remove champaign" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+            </td>
+            <td><a href="<%= url_for '/champaign/view/'. $item->column('id') %>" title="view champaign details" class="btn btn-link"><%= $item->column('name') %></a></td>
+            <td><%== $item->column('finished')? $l->key('lbl_yes'): $l->key('lbl_no') %></td>
+            <td><%= $item->column('created') %></td>
+        </tr>
+%     }
+% }
+    </tbody>
+</table>
+<div class="text-right">
+    <ul class="pager">
+        <li><a href="<%= url_for '/champaign/list/' . ($page==1? '#': $page-1) %>"><%== $l->key('lbl_previous') %></a></li>
+        <li><a href="<%= url_for '/champaign/list/' . ($page==$last_page? $page: $page+1) %>"><%== $l->key('lbl_next') %></a></li>
+    </ul>
+</div>
