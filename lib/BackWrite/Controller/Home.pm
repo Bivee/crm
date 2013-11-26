@@ -1,37 +1,30 @@
 package BackWrite::Controller::Home;
 use Mojo::Base 'BackWrite::Controller::Base';
 
+use BackWrite::API;
 use BackWrite::Model;
 
 sub index {
-    return (shift)->redirect_to('/account/signin');
-    #my $self = shift;
+    my $self = shift;
 
-    ## load entry
-    #my $model = BackWrite::Model->load('Entry');
-    #$model = $model->find( where => [ home => 1 ], single => 1);
+    # user signed out
+    return $self->redirect_to('/account/signin')
+        unless $self->current_user;
 
-    ## error
-    #die "Home entry retrieve error" if $model and $model->error;
-    #
-    #if($model){
-    #    my $mt = Mojo::Template->new;
-
-    #    return $self->render( 
-    #        text => $mt->render($model->column('content') || ''),
-    #    );
-    #}
-
-    #return $self->render( list => $model->find || undef );
+    return $self->redirect_to('/dashboard');
 }
 
 sub dashboard { 
     my $self = shift;
 
-    # check authorization
-    unless( $self->allow_to(['admin']) ){
-        return $self->render( text => 'Not Authorized', status => 403 );
-    }
+    my $activity = BackWrite::API->load('Activity');
+    my $contacts = $activity->contact_list(3);
+    my $tasks    = $activity->task_list(3);
+
+    $self->stash(
+        contacts => $contacts || [],
+        tasks    => $tasks    || [],
+    );
 }
 
 sub profile {

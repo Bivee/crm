@@ -1,30 +1,22 @@
 package BackWrite::Model;
 use Mojo::Base -strict;
 
+use BackWrite::App::Class::Loader;
+
 sub load {
-    my $class = shift;
-    my %param = @_ if @_ % 2 == 0;
+    my ( $class, $package, @args ) = @_;
 
-    my $ns = 'BackWrite::Model';
-    my $model = $param{model} || $_[0];
+    my $instance = 
+        BackWrite::App::Class::Loader->load("BackWrite::Model::${package}");
 
-    if($model){
-        # build require
-        my $module_load = $ns;
-        $module_load =~ s/::/\//g;
-
-        require "${module_load}/${model}.pm";
-        my $instance = "${ns}::${model}"->new;
-        
-        return $instance 
-            if $instance && $instance->isa('BackWrite::Model::Base');
-
-        return undef;
-    }
+    return $instance
+      if $instance && $instance->isa('BackWrite::Model::Base');
 }
 
 sub exists {
-    die "Method unimplemented!";
+    my ( $class, $package ) = @_;
+    return BackWrite::App::Class::Loader->exists("BackWrite::Model::${package}")
+        if $package;
 }
 
 1;

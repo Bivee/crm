@@ -1,14 +1,4 @@
-use Mojo::Base -strict;
-
-use FindBin;
-use lib "$FindBin::Bin/../lib";
-
-use Data::Dumper;
-use BackWrite::Model;
+use Test::More skip_all => 'buga';
 
 
-my $model = BackWrite::Model->load('Contact');
-$model->init;
-
-print Dumper $model->columns;
-
+done_testing();

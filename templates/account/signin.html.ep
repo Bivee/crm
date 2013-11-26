@@ -6,7 +6,7 @@
                 <div class="panel-body">
                     <div class="text-center">
                         <img src="<%= url_for '/img/bivee-small.png' %>" alt="BackWrite CMS" />
-                        <h3 style="color:#333;">BackWrite CMS</h3>
+                        <h4 class="text-right" style="color:#333;">Costumer Relationship Manager</h4>
                     </div>
                     <form method="post" class="form">
                         <div class="form-group">

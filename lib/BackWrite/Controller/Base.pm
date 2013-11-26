@@ -20,6 +20,31 @@ sub allow_to {
     );
 }
 
-1;
+sub _get_form {
+    my $self = shift;
 
-__END__
+    my $params;
+
+    # load params
+    my @keys = $self->param;
+    $params->{$_} = $self->param($_) || undef for @keys;
+
+    # load current user
+    $params->{current_user} = $self->current_user || undef;
+    $params->{author} = $self->current_user->column('id') || undef;
+
+    # load id if specific actions
+    $params->{id} = $self->param('id') || undef
+      unless $self->stash('action') ~~ qw/create/;
+
+    $params->{updated} = DateTime->now
+      if $self->stash('action') ~~ qw/edit/;
+
+    # get datetime if created
+    $params->{created} = DateTime->now
+      if $self->stash('action') eq 'create';
+
+    return $params || {};
+}
+
+1;

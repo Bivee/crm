@@ -3,18 +3,74 @@ use Mojo::Base 'BackWrite::I18N::Base';
 
 has 'Lexicon' => sub {
     {
-        'lbl_messages'     => 'Mensagens',
-        'lbl_contacts'     => 'Contatos',
-        'lbl_champaigns'   => 'Campanhas',
-        'lbl_notes'        => 'Notas',
-        'lbl_projects'     => 'Projetos',
-        'lbl_tasks'        => 'Tarefas',
-        'lbl_users'        => 'Usuarios',
-        'lbl_activities'   => 'Atividades',
-        'lbl_user_profile' => 'Perfil de Usuario',
-        'lbl_sign_out'     => 'Sair',
-        'lbl_sign_as'      => 'Logado como ',
+        # Default
+        'website_title' => 'Bivee CRM',
+        'website_footer_company' => 'Desenvolvido pela empresa',
+        'website_footer_license' => qq{This program is free software; you can redistribute it and/or modify it under
+     the terms of the Perl 5 programing language system license itself.},
 
+        # Top Menu
+        'topmenu_user_profile' => 'Perfil de Usuario',
+        'topmenu_messages'     => 'Mensagens',
+        'topmenu_activities'   => 'Atividades',
+        'topmenu_sign_out'     => 'Sair',
+
+        # Left Side Main Menu
+        'menu_messages'     => 'Mensagens',
+        'menu_contacts'     => 'Contatos',
+        'menu_champaigns'   => 'Campanhas',
+        'menu_notes'        => 'Notas',
+        'menu_projects'     => 'Projetos',
+        'menu_tasks'        => 'Tarefas',
+        'menu_users'        => 'Usuarios',
+        'menu_activities'   => 'Atividades',
+        'menu_helps'        => 'T&oacute;picos de Ajuda',
+
+        # Dashboard
+        'dashboard_title' => 'Dashboard',
+        'dashboard_subtitle' => 'Bivee CRM Dashboard',
+        'dashboard_welcome' => 'Bem vindo ao Bivee CRM',
+        'dashboard_last_contacts' => 'Ultimos Contatos',
+        'dashboard_no_contacts_found' => 'Nenhuma atividade sobre contatos!',
+        'dashboard_last_tasks' => 'Ultimas Tarefas',
+        'dashboard_no_tasks_found' => 'Nenhuma atividade sobre tarefas!',
+
+        # Contacts
+        'contact_list_title'      => 'Lista de Contatos',
+        'contact_list_subtitle'   => 'lista de todos os contatos',
+        'contact_form_title'      => 'Manter Contato',
+        'contact_form_subtitle'   => 'criar ou editar um contato',
+
+        'contact_ttp_edit'   => 'Editar Contato',
+        'contact_ttp_remove' => 'Remover Contato',
+
+
+        # User
+        'user_list_title'         => 'Lista de Usu&aacute;rio',
+        'user_list_subtitle'      => 'lista de todos os usu&aacute;rios',
+        'user_form_title'         => 'Manter Usu&aacute;rio',
+        'user_form_subtitle'      => 'criar ou editar um usu&aacute;rio',
+
+        'user_ttp_edit'   => 'Editar Usuario',
+        'user_ttp_remove' => 'Remover Usuario',
+
+
+
+        # labels
+        'lbl_show_all' => 'ver mais',
+
+
+        # title and subtitle
+        'project_list'            => 'Lista de Projetos',
+        'project_list_subtitle'   => 'lista de todos os projetos',
+        'project_form'            => 'Manter Projetos',
+        'project_form_subtitle'   => 'criar ou editar um projetos',
+        'champaign_list'          => 'Lista de Campanhas',
+        'champaign_list_subtitle' => 'lista de todas as campanhas',
+        'champaign_form'          => 'Manter Campanhas',
+        'champaign_form_subtitle' => 'criar ou editar uma campanha',
+
+        # fields and others
         'lbl_name'           => 'Nome',
         'lbl_action'         => 'A&ccedil;&atilde;o',
         'lbl_type'           => 'Tipo',
@@ -49,28 +105,12 @@ has 'Lexicon' => sub {
         'lbl_champaign_active' => 'A campanha esta ativa?',
         'lbl_previous'       => 'Anterior',
         'lbl_next'           => 'Proximo',
+        'lbl_close'          => 'Fechar',
 
-        # title and subtitle
-        'lbl_dashboard'               => 'Dashboard',
-        'lbl_dashboard_subtitle'      => 'Bivee CRM Dashboard',
-        'lbl_contact_list'            => 'Lista de Contatos',
-        'lbl_contact_list_subtitle'   => 'lista de todos os contatos',
-        'lbl_contact_form'            => 'Manter Contato',
-        'lbl_contact_form_subtitle'   => 'criar ou editar um contato',
-        'lbl_user_list'               => 'Lista de Usu&aacute;rio',
-        'lbl_user_list_subtitle'      => 'lista de todos os usu&aacute;rios',
-        'lbl_user_form'               => 'Manter Usu&aacute;rio',
-        'lbl_user_form_subtitle'      => 'criar ou editar um usu&aacute;rio',
-        'lbl_project_list'            => 'Lista de Projetos',
-        'lbl_project_list_subtitle'   => 'lista de todos os projetos',
-        'lbl_project_form'            => 'Manter Projetos',
-        'lbl_project_form_subtitle'   => 'criar ou editar um projetos',
-        'lbl_champaign_list'          => 'Lista de Campanhas',
-        'lbl_champaign_list_subtitle' => 'lista de todas as campanhas',
-        'lbl_champaign_form'          => 'Manter Campanhas',
-        'lbl_champaign_form_subtitle' => 'criar ou editar uma campanha',
 
         # messages
+        'lbl_no_tasks_found' => 'Nenhuma tarefa encontrada',
+        'lbl_no_contacts_found' => 'Nenhum contato encontrado',
         #'lbl_ask_remove_project' => 'Are you sure that you want to remove project?',
         'lbl_ask_remove_project' => 'Tem certeza que quer remover o projeto?',
 
@@ -95,6 +135,9 @@ has 'Lexicon' => sub {
         'lbl_last_tasks'    => 'Ultimas Tarefas',
         'lbl_show_all'      => 'ver mais',
 
+
+        'at_hour' => '&agrave;s',
+
         # values and lists
         'lst_user_language' => {
             'en' => 'Ingl&ecirc;s (en-US)',
@@ -104,6 +147,15 @@ has 'Lexicon' => sub {
             1 => 'Conta',
             2 => 'Empresa',
             3 => 'Cliente',
+        },
+
+        # replacement container
+        'replace_for' => {
+            'at_hour' => '&agrave;s',
+            'creates' => 'criou',
+            'edits' => 'editou',
+            'removes' => 'removeu',
+            'Contact' => 'Contato',
         },
 
     };

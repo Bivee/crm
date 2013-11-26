@@ -1,8 +1,8 @@
 package BackWrite::Controller::Task;
 use Mojo::Base 'BackWrite::Controller::Base';
 
-use Time::Piece;
-use BackWrite::Model;
+use DateTime;
+use BackWrite::API;
 
 # public actions
 sub index {
@@ -12,156 +12,74 @@ sub index {
 sub create {
     my $self = shift;
 
-    # getting form data
-    my $d = localtime();
-    my $data = $self->_get_form();
-    $data->{created} = join( 'T', ( $d->ymd('-'), $d->hms ) ) || undef;
+    my $api = BackWrite::API->load('Task');
+    eval {
 
-    my $model = BackWrite::Model->load('Task');
+        # create new
+        $api->create( $self->_get_form )
+          if $self->is_post;
+    };
+    if ($@) {
 
-    if ( $self->is_post ) {
-
-        # store task
-        $model->column( $_, $data->{$_} ) for keys %$data;
-        $model->create;
-
-        # error
-        if ( $model && $model->error ) {
-            return $self->render(
-                template => 'task/form',
-                model    => $model || {},
-                message  => {
-                    class   => 'alert alert-danger',
-                    text    => 'database error saving task' . $model->error,
-                },
-            );
-        }
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
     }
 
     return $self->render(
         template => 'task/form',
-        model    => $model || {},
-        message  => {
-            class   => ( $model && $model->column('id') )
-                ?'alert alert-success': '',
-            text    => ( $model && $model->column('id') )
-                ? 'task has been saved' : '',
-        }
+        model    => $api->model,
+        message  => $api->message,
     );
 }
 
 sub edit {
     my $self = shift;
 
-    # getting form data
-    my $d = localtime();
-    my $id   = $self->param('id') || 0;
-    my $data = $self->_get_form();
-    $data->{updated} = join( 'T', ( $d->ymd('-'), $d->hms ) ) || undef;
+    my $api = BackWrite::API->load('Task');
+    eval { $api->edit( $self->_get_form, $self->is_post ) };
+    if ($@) {
 
-    my $model = BackWrite::Model->load('Task');
-    $model = $model->find( where => [ id => $id ], single => 1 ) || undef;
-
-    if ( $self->is_post ) {
-
-        # store task
-        $model->column( $_, $data->{$_} ) for keys %$data;
-        $model->update;
-
-        # error
-        if ( $model && $model->error ) {
-            return $self->render(
-                template => 'task/form',
-                model    => $model || {},
-                message  => {
-                    class   => 'alert alert-danger',
-                    text    => 'database error saving task' . $model->error,
-                },
-            );
-        }
-        else {
-            return $self->render(
-                template => 'task/form',
-                model    => $model || {},
-                message  => {
-                    class   => ( $model && $model->column('id') )
-                        ?'alert alert-success': '',
-                    text    => ( $model && $model->column('id') )
-                        ? 'task has been saved' : '',
-                }
-            );
-        }
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
     }
 
     return $self->render(
         template => 'task/form',
-        model    => $model || {},
-        message  => {}
+        model    => $api->model,
+        message  => $api->message,
     );
 }
 
 sub list {
     my $self = shift;
 
-    # load user
-    my $user = $self->current_user;
+    my $list;
+    my $api = BackWrite::API->load('Task');
+    eval { $list = $api->list( $self->_get_form ); };
+    if ($@) {
 
-    # retrieve taskes
-    my $model = BackWrite::Model->load('Task');
-    return $self->render( 
-        list => $model->find( 
-            where => [ 
-                -or => [ 
-                    author      => $user->column('id'), 
-                    assigned    => $user->column('id') 
-                ]
-            ]
-        ) || undef, 
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
+    }
+
+    return $self->render(
+        list => $list || undef,
+        message => $api->message,
     );
 }
 
 sub remove {
     my $self = shift;
 
-    # signedin user
-    my $user = $self->current_user;
+    my $api = BackWrite::API->load('Task');
+    eval { $api->remove( $self->_get_form ) };
+    if ($@) {
 
-    # form data
-    my $id = $self->param('id') || 0;
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
+    }
 
-    # load task
-    my $model = BackWrite::Model->load('Task');
-    $model = $model->find( 
-        where => [ 
-            -or => [ 
-                author      => $user->column('id'), 
-                assigned    => $user->column('id') 
-            ]
-        ], 
-        single => 1 
-    ) || undef;
-
-    $model->delete if $model;
     return $self->redirect_to('/task/list');
-}
-
-# private methods
-sub _get_form {
-    my $self = shift;
-
-    my $user = $self->current_user;
-
-    return {
-        title       => $self->param('title')       || undef,
-        description => $self->param('description') || undef,
-        date        => $self->param('date')        || undef,
-        project     => $self->param('project')     || 0,
-        tags        => $self->param('tags')        || undef,
-        assigned    => $self->param('assigned')    || 0,    
-        author      => ($user && $user->column('id'))? $user->column('id'): 0,
-        finished    => $self->param('finished')    || 0,    
-      }
-      || undef;
 }
 
 1;

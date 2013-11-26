@@ -1,0 +1,11 @@
+[Sun Nov 24 20:16:24 2013] [info] Listening at "http://*:8080".
+[Sun Nov 24 20:16:24 2013] [info] Manager 10028 started.
+[Sun Nov 24 20:16:24 2013] [info] Creating process id file "/var/www/hypnotoad.pid".
+[Sun Nov 24 20:17:07 2013] [info] Starting zero downtime software upgrade.
+[Sun Nov 24 20:17:07 2013] [info] Listening at "http://*:8080".
+[Sun Nov 24 20:17:07 2013] [info] Manager 10054 started.
+[Sun Nov 24 20:17:07 2013] [info] Upgrade successful, stopping 10028.
+[Sun Nov 24 20:17:08 2013] [info] Creating process id file "/var/www/hypnotoad.pid".
+[Sun Nov 24 20:17:38 2013] [info] Listening at "http://*:8080".
+[Sun Nov 24 20:17:38 2013] [info] Manager 10069 started.
+[Sun Nov 24 20:17:38 2013] [info] Creating process id file "/var/www/hypnotoad.pid".

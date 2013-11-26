@@ -1,8 +1,8 @@
 package BackWrite::Controller::Contact;
 use Mojo::Base 'BackWrite::Controller::Base';
 
-use Time::Piece;
-use BackWrite::Model;
+use DateTime;
+use BackWrite::API;
 
 # public actions
 sub index {
@@ -12,162 +12,74 @@ sub index {
 sub create {
     my $self = shift;
 
-    # getting form data
-    my $d    = localtime();
-    my $data = $self->_get_form();
-    $data->{created} = join( 'T', ( $d->ymd('-'), $d->hms ) ) || undef;
+    my $api = BackWrite::API->load('Contact');
+    eval {
 
-    my $model = BackWrite::Model->load('Contact');
+        # create new
+        $api->create( $self->_get_form )
+          if $self->is_post;
+    };
+    if ($@) {
 
-    if ( $self->is_post ) {
-
-        # store task
-        $model->column( $_, $data->{$_} ) for keys %$data;
-        $model->create;
-
-        # error
-        if ( $model && $model->error ) {
-            return $self->render(
-                template => 'contact/form',
-                model    => $model || {},
-                message  => {
-                    class => 'alert alert-danger',
-                    text  => 'database error saving entity' . $model->error,
-                },
-            );
-        }
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
     }
 
     return $self->render(
         template => 'contact/form',
-        model    => $model || {},
-        message  => {
-            class => ( $model && $model->column('id') ) ? 'alert alert-success'
-            : '',
-            text => ( $model && $model->column('id') ) ? 'entity has been saved'
-            : '',
-        }
+        model    => $api->model,
+        message  => $api->message,
     );
 }
 
 sub edit {
     my $self = shift;
 
-    # getting form data
-    my $d    = localtime();
-    my $id   = $self->param('id') || 0;
-    my $data = $self->_get_form();
-    $data->{updated} = join( 'T', ( $d->ymd('-'), $d->hms ) ) || undef;
+    my $api = BackWrite::API->load('Contact');
+    eval { $api->edit( $self->_get_form, $self->is_post ) };
+    if ($@) {
 
-    my $model = BackWrite::Model->load('Contact');
-    $model = $model->find( where => [ id => $id ], single => 1 ) || undef;
-
-    if ( $self->is_post ) {
-
-        # store task
-        $model->column( $_, $data->{$_} ) for keys %$data;
-        $model->update;
-
-        # error
-        if ( $model && $model->error ) {
-            return $self->render(
-                template => 'contact/form',
-                model    => $model || {},
-                message  => {
-                    class => 'alert alert-danger',
-                    text  => 'database error saving entity ' . $model->error,
-                },
-            );
-        }
-        else {
-            return $self->render(
-                template => 'contact/form',
-                model    => $model || {},
-                message  => {
-                    class => ( $model && $model->column('id') )
-                    ? 'alert alert-success'
-                    : '',
-                    text => ( $model && $model->column('id') )
-                    ? 'entity has been saved'
-                    : '',
-                }
-            );
-        }
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
     }
 
     return $self->render(
         template => 'contact/form',
-        model    => $model || {},
-        message  => {}
+        model    => $api->model,
+        message  => $api->message,
     );
 }
 
 sub list {
     my $self = shift;
 
-    # load user
-    my $user = $self->current_user;
+    my $list;
+    my $api = BackWrite::API->load('Contact');
+    eval { $list = $api->list( $self->_get_form ); };
+    if ($@) {
 
-    # retrieve taskes
-    my $model = BackWrite::Model->load('Contact');
-    return $self->render( list => $model->find || undef );
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
+    }
+
+    return $self->render(
+        list => $list || undef,
+        message => $api->message,
+    );
 }
 
 sub remove {
     my $self = shift;
 
-    # signedin user
-    my $user = $self->current_user;
+    my $api = BackWrite::API->load('Contact');
+    eval { $api->remove( $self->_get_form ) };
+    if ($@) {
 
-    # form data
-    my $id = $self->param('id') || 0;
+        # TODO: remove this and render 500 status page
+        return $self->render( text => $@ );
+    }
 
-    # load task
-    my $model = BackWrite::Model->load('Contact');
-    $model = $model->find(
-        where  => [ id => $id ],
-        single => 1
-    ) || undef;
-
-    $model->delete if $model;
     return $self->redirect_to('/contact/list');
-}
-
-# private methods
-sub _get_form {
-    my $self = shift;
-
-    my $model = BackWrite::Model->load('Contact');
-    my %params = map{ 
-        $_ => $self->param($_) || undef 
-    } @{$model->columns};
-
-    #    qw/ name description job company street city 
-    #        state zip type email website phone mobile 
-    #        active author updated created/;
-
-    $params{author} = $self->current_user->column('id') || 0;
-
-    return \%params || {};
-
-    #return {
-    #    name        => $self->param('name')        || undef,
-    #    description => $self->param('description') || undef,
-    #    job         => $self->param('job')         || undef,
-    #    company     => $self->param('company')     || undef,
-    #    street      => $self->param('street')      || undef,
-    #    city        => $self->param('city')        || undef,
-    #    state       => $self->param('state')       || undef,
-    #    zip         => $self->param('zip')         || undef,
-    #    type        => $self->param('type')        || undef,
-    #    email       => $self->param('email')       || undef,
-    #    website     => $self->param('website')     || undef,
-    #    phone       => $self->param('phone')       || undef,
-    #    mobile      => $self->param('mobile')      || undef,
-    #    active      => $self->param('active')      || 1,
-    #    author      => $user->column('id')         || 0,
-    #  }
-    #  || undef;
 }
 
 1;

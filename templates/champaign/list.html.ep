@@ -1,4 +1,5 @@
 % layout 'administration';
+% lang eval{ current_user->column('lang') } || 'en';
 % use BackWrite::I18N;
 % my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
 
@@ -32,15 +33,15 @@
             </td>
             <td><a href="<%= url_for '/champaign/view/'. $item->column('id') %>" title="view champaign details" class="btn btn-link"><%= $item->column('name') %></a></td>
             <td><%== $item->column('finished')? $l->key('lbl_yes'): $l->key('lbl_no') %></td>
-            <td><%= $item->column('created') %></td>
+            <td><%= datetime($item->column('created'))->dmy('/') %> <%== l 'at_hour' %> <%= datetime($item->column('created'))->hms(':') %></td>
         </tr>
 %     }
 % }
     </tbody>
 </table>
-<div class="text-right">
+<!-- div class="text-right">
     <ul class="pager">
-        <li><a href="<%= url_for '/champaign/list/' . ($page==1? '#': $page-1) %>"><%== $l->key('lbl_previous') %></a></li>
-        <li><a href="<%= url_for '/champaign/list/' . ($page==$last_page? $page: $page+1) %>"><%== $l->key('lbl_next') %></a></li>
+        <li><a href="<%# url_for '/champaign/list/' . ($page==1? '#': $page-1) %>"><%== $l->key('lbl_previous') %></a></li>
+        <li><a href="<%# url_for '/champaign/list/' . ($page==$last_page? $page: $page+1) %>"><%== $l->key('lbl_next') %></a></li>
     </ul>
-</div>
+</div -->

@@ -38,9 +38,9 @@
 % }
     </tbody>
 </table>
-<div class="text-right">
+<!-- div class="text-right">
     <ul class="pager">
-        <li><a href="<%= url_for '/project/list/' . ($page==1? '#': $page-1) %>">Previous</a></li>
-        <li><a href="<%= url_for '/project/list/' . ($page==$last_page? $page: $page+1) %>">Next</a></li>
+        <li><a href="<%# url_for '/project/list/' . ($page==1? '#': $page-1) %>">Previous</a></li>
+        <li><a href="<%# url_for '/project/list/' . ($page==$last_page? $page: $page+1) %>">Next</a></li>
     </ul>
-</div>
+</div -->
