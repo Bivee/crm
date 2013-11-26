@@ -1,19 +1,9 @@
 =pod
 
-=head1 Eureca Idea Web Portal
+=head1 Bivee CRM
 
-L<Eureca> is a software that provide an c<simple> and c<effective> interface to 
-employees can post ideas for company or business improvement.
-
-Think about it...
-
-You have a company with many and many employees and you like to listen all of your 
-employees ideas that can be positives to make improvements on your company but you 
-dont have many time to listen one per time.
-
-Installing L<Eureca> you can provide a channel to your employee start to contribute 
-posting some ideas (based on criteria, obviously) and you can check on your free 
-time.
+Bivee CRM(under high development) is a simple CRM solution implemented using 
+Perl 5.
 
 
 =head3 Who can use it?
@@ -31,9 +21,7 @@ Anyone can download a copy of this software, install on server and use!
 
 =item ObjectDB ORM
 
-=item SQLite driver for DBI
-
-(or your favorite database ;] ) 
+=item DBI driver for your favorite DB
 
 =back
 
@@ -43,7 +31,7 @@ Anyone can download a copy of this software, install on server and use!
 You can use L<morbo> that is an development perl server for mojolicious to run
 L<Eureca> on your machine:
 
-    $ morbo eureca/index.pl
+    $ morbo crm/index.pl
 
 or you can use L<hipnotoad> for production deployment.
 
