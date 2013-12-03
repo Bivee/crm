@@ -41,8 +41,8 @@ has 'Lexicon' => sub {
         'contact_form_title'      => 'Manter Contato',
         'contact_form_subtitle'   => 'criar ou editar um contato',
 
-        'contact_ttp_edit'   => 'Editar Contato',
-        'contact_ttp_remove' => 'Remover Contato',
+        'contact_ttp_edit'   => 'Editar contato',
+        'contact_ttp_remove' => 'Remover contato',
 
 
         # User
@@ -51,26 +51,47 @@ has 'Lexicon' => sub {
         'user_form_title'         => 'Manter Usu&aacute;rio',
         'user_form_subtitle'      => 'criar ou editar um usu&aacute;rio',
 
-        'user_ttp_edit'   => 'Editar Usuario',
-        'user_ttp_remove' => 'Remover Usuario',
+        'user_ttp_edit'   => 'Editar usuario',
+        'user_ttp_remove' => 'Remover usuario',
 
 
+        # Project
+        'project_list_title'      => 'Lista de Projetos',
+        'project_list_subtitle'   => 'lista de todos os projetos',
+        'project_form_title'      => 'Manter Projetos',
+        'project_form_subtitle'   => 'criar ou editar um projetos',
+
+        'project_ttp_edit'   => 'Editar projeto',
+        'project_ttp_remove' => 'Remover projeto',
+        'project_ttp_remove' => 'Ver detalhes',
+
+
+        # Champaign
+        'champaign_list_title'    => 'Lista de Campanhas',
+        'champaign_list_subtitle' => 'lista de todas as campanhas',
+        'champaign_form_title'    => 'Manter Campanhas',
+        'champaign_form_subtitle' => 'criar ou editar uma campanha',
+
+        'champaign_ttp_edit'   => 'Editar Usuario',
+        'champaign_ttp_remove' => 'Remover Usuario',
+
+        # Note
+        'note_list_title'         => 'Lista de Notas',
+        'note_list_subtitle'      => 'lista de todas as notas',
+        'note_form_title'         => 'Manter Nota',
+        'note_form_subtitle'      => 'criar ou editar uma nota',
+
+        'note_ttp_edit'           => 'Editar nota',
+        'note_ttp_remove'         => 'Remover nota',
+        'note_ttp_details'        => 'Ver detalhes',
 
         # labels
         'lbl_show_all' => 'ver mais',
 
 
         # title and subtitle
-        'project_list'            => 'Lista de Projetos',
-        'project_list_subtitle'   => 'lista de todos os projetos',
-        'project_form'            => 'Manter Projetos',
-        'project_form_subtitle'   => 'criar ou editar um projetos',
-        'champaign_list'          => 'Lista de Campanhas',
-        'champaign_list_subtitle' => 'lista de todas as campanhas',
-        'champaign_form'          => 'Manter Campanhas',
-        'champaign_form_subtitle' => 'criar ou editar uma campanha',
-
         # fields and others
+        'lbl_title'          => 'Titulo',
         'lbl_name'           => 'Nome',
         'lbl_action'         => 'A&ccedil;&atilde;o',
         'lbl_type'           => 'Tipo',
@@ -106,7 +127,16 @@ has 'Lexicon' => sub {
         'lbl_previous'       => 'Anterior',
         'lbl_next'           => 'Proximo',
         'lbl_close'          => 'Fechar',
+        'lbl_remember_me'    => 'Lembrar-me',
+        'lbl_forgot_pass'    => 'Esqueceu a senha',
+        'lbl_tag'            => 'Tags',
+        'lbl_content'        => 'Conte&uacute;do',
+        'lbl_project_finished' => 'O projeto esta terminado',
 
+
+        # help fields
+        'lbl_tag_help'       => 'Digite as tags separadas por virgula. Exemplo: foo, bar, baz',
+        #'lbl_tag_help'       => 'Type tags separated by comma like example: foo, bar, baz',
 
         # messages
         'lbl_no_tasks_found' => 'Nenhuma tarefa encontrada',
@@ -127,6 +157,7 @@ has 'Lexicon' => sub {
         'btn_help'            => 'Ajuda',
         'btn_save'            => 'Salvar',
         'btn_cancel'          => 'Cancelar',
+        'btn_signin'          => 'Entrar',
 
         # dashboard page
         'lbl_last_acts'     => 'Ultimas Atividades',

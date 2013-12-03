@@ -1,4 +1,6 @@
 % layout 'default';
+% lang eval{ current_user->column('lang') } || 'en';
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -9,25 +11,31 @@
                         <h4 class="text-right" style="color:#333;">Costumer Relationship Manager</h4>
                     </div>
                     <form method="post" class="form">
+                        <!-- div class="form-group">
+                            <label for="useremail"><%== l 'lbl_language' %></label>
+                            <select name="lang" class="form-control">
+                                <option value="en">English</option>
+                                <option value="pt">Portuguese</option>
+                            </select>
+                        </div -->
                         <div class="form-group">
-                            <label for="useremail">E-mail</label>
+                            <label for="useremail"><%== l 'lbl_email' %></label>
                             <input type="text" id="useremail" name="email" value="<%= $model->{email} || '' %>" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password"><%== l 'lbl_password' %></label>
                             <input type="password" id="password" name="password" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label class="checkbox">
-                                <small><input type="checkbox" value="1" />&nbsp;Remember me?</small>
+                                <small><input type="checkbox" value="1" />&nbsp;<%== l 'lbl_remember_me' %>?</small>
                             </label>
                         </div>
                         <div class="form-group">
-                            <small><a href="<%= url_for '/account/register' %>">Register an account</a></small>&nbsp;|&nbsp;
-                            <small><a href="<%= url_for '/account/forgot' %>">Forgot password?</a></small>&nbsp;
+                            <small><a href="<%= url_for '/account/forgot' %>"><%== l 'lbl_forgot_pass' %>?</a></small>&nbsp;
                         </div>
                         <div class="form-group text-right">
-                            <button type="submit" class="btn btn-danger">Sign In</button>
+                            <button type="submit" class="btn btn-danger"><%== l 'btn_signin'%></button>
                         </div>
                         <div>
                             <%= $error || $message %>

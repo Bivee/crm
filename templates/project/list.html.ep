@@ -1,25 +1,24 @@
 % layout 'administration';
-% use BackWrite::I18N;
-% my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+% lang eval{ current_user->column('lang') } || 'en';
 
 % content_for 'page_title' => begin
-<h1><%== $l->key('lbl_project_list') %> <small><%== $l->key('lbl_project_list_subtitle') %></small></h1>
+<h1><%== l 'project_list_title' %> <small><%== l 'project_list_subtitle' %></small></h1>
 % end
 
 <div class="well well-sm text-right">
-    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== $l->key('btn_back') %></a>&nbsp;
-    <a href="<%= url_for '/project/create' %>" class="btn btn-danger btn-xs"><i class="icon-plus"></i>&nbsp;<%== $l->key('btn_create_new') %></a>&nbsp;
-    <a href="<%= url_for '/help/project' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;<%== $l->key('btn_help') %></a>&nbsp;
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== l 'btn_back'  %></a>&nbsp;
+    <a href="<%= url_for '/project/create' %>" class="btn btn-danger btn-xs"><i class="icon-plus"></i>&nbsp;<%== l 'btn_create_new'  %></a>&nbsp;
+    <a href="<%= url_for '/help/project' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;<%== l 'btn_help'  %></a>&nbsp;
 </div>
 <br />
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th style="width:200px"><%== $l->key('lbl_action') %></th>
-            <th><%== $l->key('lbl_name') %></th>
-            <th><%== $l->key('lbl_finished') %></th>
-            <th><%== $l->key('lbl_created') %></th>
+            <th style="width:200px"><%== l 'lbl_action'  %></th>
+            <th><%== l 'lbl_name'  %></th>
+            <th><%== l 'lbl_finished'  %></th>
+            <th><%== l 'lbl_created'  %></th>
         </tr>
     </thead>
     <tbody>
@@ -27,11 +26,11 @@
 %     for my $item (@$list){
         <tr>
             <td>
-                <a href="<%= url_for '/project/edit/'. $item->column('id') %>" title="edit task" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
-                <a href="javascript:if(confirm('<%== $l->key('lbl_ask_remove_project')%>')){document.location = '<%= url_for '/project/remove/'. $item->column('id') %>'}" title="remove task" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+                <a href="<%= url_for '/project/edit/'. $item->column('id') %>" title="<%== l 'project_ttp_edit' %>" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+                <a href="javascript:if(confirm('<%== l 'lbl_ask_remove_project' %>')){document.location = '<%= url_for '/project/remove/'. $item->column('id')  %>'}" title="<%== l 'project_ttp_remove' %>" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
             </td>
-            <td><a href="<%= url_for '/project/view/'. $item->column('id') %>" target="_blank" title="view project details" class="btn btn-link"><%= $item->column('name') %></a></td>
-            <td><%== $item->column('finished')? $l->key('lbl_yes'): $l->key('lbl_no') %></td>
+            <td><a href="<%= url_for '/project/view/'. $item->column('id') %>" target="_blank" title="<%== l 'project_ttp_details' %>" class="btn btn-link"><%= $item->column('name') %></a></td>
+            <td><%== l ($item->column('finished')? 'lbl_yes': 'lbl_no')  %></td>
             <td><%= $item->column('created') %></td>
         </tr>
 %     }

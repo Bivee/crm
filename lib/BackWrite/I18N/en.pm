@@ -39,6 +39,8 @@ has 'Lexicon' => sub{
         'lbl_language'       => 'Language',
         'lbl_role'           => 'Role',
         'lbl_admin'          => 'Administrator',
+        'lbl_remember_me'    => 'Remember me',
+        'lbl_forgot_pass'    => 'Forgot password',
 
         # title and subtitle
         'lbl_dashboard'             => 'Dashboard',
@@ -65,6 +67,7 @@ has 'Lexicon' => sub{
         'btn_help'            => 'Help',
         'btn_save'            => 'Save',
         'btn_cancel'          => 'Cancel',
+        'btn_signin'          => 'Sign In',
 
         # dashboard page
         'lbl_last_acts'     => 'Last Activities',

@@ -1,22 +1,23 @@
 % layout 'administration';
+% lang eval{ current_user->column('lang') } || 'en';
 
 % content_for 'page_title' => begin
-<h1>Note List <small>list of notes</small></h1>
+<h1><%== l 'note_list_title' %> <small><%== l 'note_list_subtitle' %></small></h1>
 % end
 
 <div class="well well-sm text-right">
-    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;Back</a>&nbsp;
-    <a href="<%= url_for '/note/create' %>" class="btn btn-danger btn-xs"><i class="icon-plus"></i>&nbsp;Create New</a>&nbsp;
-    <a href="<%= url_for '/help/note' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;Help</a>&nbsp;
+    <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== l 'btn_back' %></a>&nbsp;
+    <a href="<%= url_for '/note/create' %>" class="btn btn-danger btn-xs"><i class="icon-plus"></i>&nbsp;<%== l 'btn_create_new' %></a>&nbsp;
+    <a href="<%= url_for '/help/note' %>" class="btn btn-danger btn-xs"><i class="icon-question"></i>&nbsp;<%== l 'btn_help' %></a>&nbsp;
 </div>
 <br />
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th style="width:200px">Action</th>
-            <th>Title</th>
-            <th>Created</th>
+            <th style="width:200px"><%== l 'lbl_action' %></th>
+            <th><%== l 'lbl_title' %></th>
+            <th><%== l 'lbl_created' %></th>
         </tr>
     </thead>
     <tbody>
@@ -24,10 +25,10 @@
 %     for my $item (@$list){
         <tr>
             <td>
-                <a href="<%= url_for '/note/edit/'. $item->column('id') %>" title="edit note" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
-                <a href="<%= url_for '/note/remove/'. $item->column('id') %>" title="remove note" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+                <a href="<%= url_for '/note/edit/'. $item->column('id') %>" title="<%== l 'note_ttp_edit' %>" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+                <a href="<%= url_for '/note/remove/'. $item->column('id') %>" title="<%== l 'note_ttp_remove' %>" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
             </td>
-            <td><a href="<%= url_for '/note/view/'. $item->column('id') %>"title="view note details" class="btn btn-link"><%= $item->column('title') %></a></td>
+            <td><a href="<%= url_for '/note/view/'. $item->column('id') %>"title="<%== l 'note_ttp_details' %>" class="btn btn-link"><%= $item->column('title') %></a></td>
             <td><%= $item->column('created') %></td>
         </tr>
 %     }
