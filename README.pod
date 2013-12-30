@@ -29,18 +29,17 @@ Anyone can download a copy of this software, install on server and use!
 =head3 How can I test/run?
 
 You can use L<morbo> that is an development perl server for mojolicious to run
-L<Eureca> on your machine:
+L<Bivee::CRM> on your machine:
 
     $ morbo crm/index.pl
 
 or you can use L<hipnotoad> for production deployment.
 
 
+
 =head3 Author
 
-2013 (c) Bivee
-
-L<http://bivee.com.br>
+2013 (c) Bivee L<http://bivee.com.br>
 
 
 =head3 Copyright and License
