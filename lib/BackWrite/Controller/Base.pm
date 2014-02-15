@@ -12,14 +12,6 @@ sub http_method {
     return (shift)->req->method;
 }
 
-sub allow_to {
-    my ($self, $roles, $redirect) = @_;
-    
-    return BackWrite::Authorization->allow_to(
-        $roles, $self, $redirect || undef
-    );
-}
-
 sub _get_form {
     my $self = shift;
 
@@ -37,11 +29,11 @@ sub _get_form {
     $params->{id} = $self->param('id') || undef
       unless $self->stash('action') ~~ qw/create/;
 
-    $params->{updated} = DateTime->now
+    $params->{updated} = DateTime->now( time_zone => 'local' )
       if $self->stash('action') ~~ qw/edit/;
 
     # get datetime if created
-    $params->{created} = DateTime->now
+    $params->{created} = DateTime->now( time_zone => 'local' )
       if $self->stash('action') eq 'create';
 
     return $params || {};
