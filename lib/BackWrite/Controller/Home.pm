@@ -17,9 +17,9 @@ sub index {
 sub dashboard { 
     my $self = shift;
 
-    my $activity = BackWrite::API->load('Activity');
-    my $contacts = $activity->contact_list(3);
-    my $tasks    = $activity->task_list(3);
+    my $activity; # = BackWrite::API->load('Activity');
+    my $contacts; # = $activity->contact_list(3);
+    my $tasks   ; # = $activity->task_list(3);
 
     $self->stash(
         contacts => $contacts || [],

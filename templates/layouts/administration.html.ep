@@ -1,4 +1,4 @@
-% lang eval{ current_user->column('lang') } || 'en';
+% lang eval{ current_user->lang } || 'en';
 
 <!DOCTYPE html>
 <html>

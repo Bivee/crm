@@ -5,26 +5,30 @@ use DateTime;
 use BackWrite::Model;
 
 # attributes
-has 'model' => sub { BackWrite::Model->load('User') };
+has 'model' => sub { BackWrite::Model->init_db->resultset('User') };
 has 'param';
 
 # methods
 sub create {
     my ( $self, $param ) = @_;
 
-    # load params
-    $self->param($param);
-
-    # load model
-    $self->model( BackWrite::Model->load('User') )
-      unless $self->model;
-
     # setting columns and store
-    $self->model->column( $_, $self->param->{$_} ) for keys %{ $self->param };
-    $self->model->create;
+    my $model = $self->model->create({
+        name     => $param->{name},
+        email    => $param->{email},
+        password => $param->{password},
+        role     => $param->{role},
+        image    => $param->{image},
+        lang     => $param->{lang},
+        about    => $param->{about},
+        token    => $param->{token},
+        change   => $param->{change},
+        active   => $param->{active},
+        created  => $param->{created},
+    });
 
     # error
-    if ( $self->model && $self->model->error ) {
+    unless ( $model && $model->in_storage ) {
         $self->message( {
             class => 'alert alert-danger',
             text  => 'database error saving user ' . $self->model->error,
@@ -37,16 +41,6 @@ sub create {
             text => ( $self->model && $self->model->column('id') )
             ? 'user has been saved' : '',
         });
-
-        eval {
-            my $activity = BackWrite::API->load('Activity');
-            $activity->create( {
-                user    => $self->param->{author},
-                action  => 'creates',
-                type    => 'User',
-                created => DateTime->now,
-            });
-        };
     }
 
     $self;
@@ -55,31 +49,31 @@ sub create {
 sub edit {
     my ( $self, $param, $is_post ) = @_;
 
-    # load params
-    $self->param($param);
-
-    # get model instance
-    $self->model( BackWrite::Model->load('User') )
-      unless $self->model;
-
-    my $model = $self->model->find(
-        where  => [ id => $self->param->{id} ],
-        single => 1
-    ) || undef;
-
+    # load
+    my $model = $self->model->find($param->{id});
     $self->model($model);
 
     # return if is get http method
     return $self unless $is_post;
 
     if ( $self->model ) {
-        $self->model->column( $_, $self->param->{$_} )
-          for keys %{ $self->param };
-        $self->model->update;
+        my $model = $self->model->update({
+            name     => $param->{name},
+            email    => $param->{email},
+            password => $param->{password},
+            role     => $param->{role},
+            image    => $param->{image},
+            lang     => $param->{lang},
+            about    => $param->{about},
+            token    => $param->{token},
+            change   => $param->{change},
+            active   => $param->{active},
+            created  => $param->{created},
+        });
     }
 
     # error
-    if ( $self->model && $self->model->error ) {
+    if ( $self->model ) {
         $self->message(
             {
                 class => 'alert alert-danger',
@@ -94,16 +88,6 @@ sub edit {
             text => ( $self->model && $self->model->column('id') )
             ? 'user has been saved' : '',
         });
-
-        eval {
-            my $activity = BackWrite::API->load('Activity');
-            $activity->create({
-                user    => $self->param->{author},
-                action  => 'edits',
-                type    => 'User',
-                created => DateTime->now,
-            });
-        };
     }
 
     $self;
@@ -111,44 +95,15 @@ sub edit {
 
 sub list {
     my ( $self, $param ) = @_;
-
-    # load params
-    $self->param($param);
-
-    # get model instance
-    $self->model( BackWrite::Model->load('User') )
-      unless $self->model;
-
-    return $self->model->find || undef;
+    return $self->model->search || undef;
 }
 
 sub remove {
     my ( $self, $param ) = @_;
 
-    # load params
-    $self->param($param);
-
-    # get model instance
-    $self->model( BackWrite::Model->load('User') )
-      unless $self->model;
-
-    my $model = $self->model->find(
-        where  => [ id => $self->param->{id} ],
-        single => 1
-    ) || undef;
-
+    my $model = $self->model->find($param->{id});
     $model->delete if $model; 
     
-    eval {
-        my $activity = BackWrite::API->load('Activity');
-        $activity->create({
-            user    => $self->param->{author},
-            action  => 'removes',
-            type    => 'User',
-            created => DateTime->now,
-        });
-    };
-
     $self;
 }
 

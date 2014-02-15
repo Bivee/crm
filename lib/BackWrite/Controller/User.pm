@@ -28,7 +28,7 @@ sub create {
 
     return $self->render(
         template => 'user/form',
-        model    => $api->model,
+        model    => undef,
         message  => $api->message,
     );
 }
@@ -62,6 +62,9 @@ sub list {
         # TODO: remove this and render 500 status page
         return $self->render( text => $@ );
     }
+
+    #use Data::Dumper;
+    #return $self->render( text => Dumper $list );
 
     return $self->render(
         list => $list || undef,

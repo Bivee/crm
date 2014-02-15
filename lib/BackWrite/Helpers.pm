@@ -17,15 +17,21 @@ sub register {
     # TODO pack into plugin
     $app->helper(
         'lang' => sub {
-            shift->session( lang => $_[0] || 'eng' ),;
+            my ($c, $lang) = @_;
+            $c->session( lang => $lang? $lang: 'en' );
         }
     );
 
     # TODO pack into plugin
     $app->helper(
         'l' => sub {
-            my $l = BackWrite::I18N->load( shift->session('lang') || 'eng' );
-            return $l->key( $_[0] ) || '';
+            my ($c, $key) = @_;
+
+            my $lang = 'en';
+            $lang = $c->session('lang') if $c->session('lang');
+            
+            my $l = BackWrite::I18N->load( $lang );
+            return $l? $l->key( $key ): $key;
         }
     );
 
