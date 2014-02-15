@@ -1,10 +1,9 @@
 % layout 'administration';
-% lang eval{ current_user->column('lang') } || undef;
+% lang (current_user)? current_user->lang: undef;
 
 % content_for 'page_title' => begin
 <h1><%== l 'dashboard_title'%> <small><%== l 'dashboard_subtitle'%></small></h1>
 % end
-
 
 <div class="row">
     <div class="col-md-12">
@@ -43,64 +42,64 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="icon-male"></i>&nbsp;<%== l 'dashboard_last_contacts' %> <a href="<%= url_for '/contact/list' %>" class="btn btn-default btn-xs" style="float:right;"><%== l 'lbl_show_all' %></a></h3>
-            </div>
-            <div class="panel-body">
-                <table class="table table-bordered table-striped">
-                    <tbody>
-% if (@$contacts) {
-%   for my $item (@$contacts){                   
-                        <tr>
-                            <td>
-                                <h5>Daniel Vinciguerra <%= r $item->column('action') %> <%= r $item->column('type') || '' %><br /> 
-                                <small class="text-muted"><%= datetime($item->column('created'))->dmy('/') %> <%== l 'at_hour' %> <%= datetime($item->column('created'))->hms(':') %></small></h5>
-                            </td>
-                        </tr>
-%   }                        
-% } else {
-                        <tr>
-                            <td>
-                                <h5><i class="icon-info-sign icon-large"></i> <%== l 'dashboard_no_contacts_found' %></h5>
-                            </td>
-                        </tr>
-%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="icon-check"></i>&nbsp;<%== l 'dashboard_last_tasks' %> <a href="<%= url_for '/task/list' %>" class="btn btn-default btn-xs" style="float:right;"><%== l 'lbl_show_all' %></a></h3>
-            </div>
-            <div class="panel-body">
-                <table class="table table-bordered table-striped">
-                    <tbody>
-% if (@$tasks) {
-%   for my $item (@$tasks) {
-                        <tr>
-                            <td>
-                                <h5>Daniel Vinciguerra <%= r $item->column('action') %> <%= r $item->column('type') || '' %><br /> 
-                                <small class="text-muted"><%= datetime($item->column('created'))->dmy('/') %> <%== l 'at_hour' %> <%= datetime($item->column('created'))->hms(':') %></small></h5>
-                            </td>
-                        </tr>
-%   }                        
-% } else {
-                        <tr>
-                            <td>
-                                <h5><i class="icon-info-sign icon-large"></i> <%== l 'dashboard_no_tasks_found' %></h5>
-                            </td>
-                        </tr>
-%}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+%# <div class="row">
+%#     <div class="col-md-6">
+%#         <div class="panel panel-default">
+%#             <div class="panel-heading">
+%#                 <h3 class="panel-title"><i class="icon-male"></i>&nbsp;<%== l 'dashboard_last_contacts' %> <a href="<%= url_for '/contact/list' %>" class="btn btn-default btn-xs" style="float:right;"><%== l 'lbl_show_all' %></a></h3>
+%#             </div>
+%#             <div class="panel-body">
+%#                 <table class="table table-bordered table-striped">
+%#                     <tbody>
+%# % if (@$contacts) {
+%# %   for my $item (@$contacts){                   
+%#                         <tr>
+%#                             <td>
+%#                                 <h5>Daniel Vinciguerra <%= r $item->column('action') %> <%= r $item->column('type') || '' %><br /> 
+%#                                 <small class="text-muted"><%= datetime($item->column('created'))->dmy('/') %> <%== l 'at_hour' %> <%= datetime($item->column('created'))->hms(':') %></small></h5>
+%#                             </td>
+%#                         </tr>
+%# %   }                        
+%# % } else {
+%#                         <tr>
+%#                             <td>
+%#                                 <h5><i class="icon-info-sign icon-large"></i> <%== l 'dashboard_no_contacts_found' %></h5>
+%#                             </td>
+%#                         </tr>
+%# %}
+%#                     </tbody>
+%#                 </table>
+%#             </div>
+%#         </div>
+%#     </div>
+%#     <div class="col-md-6">
+%#         <div class="panel panel-default">
+%#             <div class="panel-heading">
+%#                 <h3 class="panel-title"><i class="icon-check"></i>&nbsp;<%== l 'dashboard_last_tasks' %> <a href="<%= url_for '/task/list' %>" class="btn btn-default btn-xs" style="float:right;"><%== l 'lbl_show_all' %></a></h3>
+%#             </div>
+%#             <div class="panel-body">
+%#                 <table class="table table-bordered table-striped">
+%#                     <tbody>
+%# % if (@$tasks) {
+%# %   for my $item (@$tasks) {
+%#                         <tr>
+%#                             <td>
+%#                                 <h5>Daniel Vinciguerra <%= r $item->column('action') %> <%= r $item->column('type') || '' %><br /> 
+%#                                 <small class="text-muted"><%= datetime($item->column('created'))->dmy('/') %> <%== l 'at_hour' %> <%= datetime($item->column('created'))->hms(':') %></small></h5>
+%#                             </td>
+%#                         </tr>
+%# %   }                        
+%# % } else {
+%#                         <tr>
+%#                             <td>
+%#                                 <h5><i class="icon-info-sign icon-large"></i> <%== l 'dashboard_no_tasks_found' %></h5>
+%#                             </td>
+%#                         </tr>
+%# %}
+%#                     </tbody>
+%#                 </table>
+%#             </div>
+%#         </div>
+%#     </div>
+%# </div>
 

@@ -14,9 +14,6 @@ sub create {
     my $self = shift;
 
     my $api = BackWrite::API->load('User');
-    if($self->is_post){
-    
-    }
     eval {
 
         # create new

@@ -12,9 +12,14 @@ sub load {
     my $module_load = $package;
     $module_load =~ s/::/\//g;
 
+    my $loaded;
+    map{
+        $loaded = 1 if $_ eq $module_load
+    } keys %INC;
+
     my $instance;
     eval {
-        require "${module_load}.pm";
+        require "${module_load}.pm" unless $loaded;
         $instance = "${package}"->new;
     };
     
