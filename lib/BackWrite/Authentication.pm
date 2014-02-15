@@ -5,20 +5,20 @@ use BackWrite::Model;
 sub load_user {
     my ($class, $app, $uid) = @_;
 
-    my $model = BackWrite::Model->load('User');
-    return $model->find( where => [id => $uid], single => 1);
+    my $model = BackWrite::Model->init_db->resultset('User');
+    return $model->find($uid);
 }
 
 sub validate_user {
     my ($class, $app, $username, $password, $extas) = @_;
 
-    my $model = BackWrite::Model->load('User');
-    my $user = $model->find( 
-        where => [ email=>$username, password=>$password], single => 1
-    );
+    my $model = BackWrite::Model->init_db->resultset('User');
+    my $user = $model->find({
+        email => $username, password => $password
+    });
 
     # user found
-    return $user->column('id') || undef if $user;
+    return $user->id || undef if $user;
 
     return;
 }

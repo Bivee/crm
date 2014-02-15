@@ -1,6 +1,6 @@
 % layout 'administration';
 % use BackWrite::I18N;
-% my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+% my $l = BackWrite::I18N->load( current_user->lang || 'en' );
 
 % content_for 'page_title' => begin
 <h1><%== $l->key('lbl_user_list') %> <small><%== $l->key('lbl_user_list_subtitle') %></small></h1>
@@ -23,17 +23,17 @@
         </tr>
     </thead>    
     <tbody>
-% if ($list){
-%     for my $item (@$list){
+% if (scalar $list->all){
+%     for my $item ($list->all){
         <tr>
             <td>
-                <a href="<%= url_for '/user/edit/'. $item->column('id') %>" title="edit user" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
-                <a href="<%= url_for '/user/remove/'. $item->column('id') %>" title="remove user" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+                <a href="<%= url_for '/user/edit/'. $item->id %>" title="edit user" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+                <a href="<%= url_for '/user/remove/'. $item->id %>" title="remove user" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
             </td>
-            <td><a href="<%= url_for '/user/view/'. $item->column('id') %>" title="view user details" class="btn btn-link"><%= $item->column('name') %></a></td>
-            <td><%= $item->column('email') %></td>
-            <td><%= $item->column('role') eq 'admin'? 'Yes': 'No' %></td>
-            <td><%= $item->column('created') %></td>
+            <td><a href="<%= url_for '/user/view/'. $item->id %>" title="view user details" class="btn btn-link"><%= $item->name %></a></td>
+            <td><%= $item->email %></td>
+            <td><%= $item->role eq 'admin'? 'Yes': 'No' %></td>
+            <td><%= $item->created %></td>
         </tr>
 %     }
 % }

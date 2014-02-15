@@ -16,7 +16,7 @@ __PACKAGE__->load_namespaces;
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:fzIQXODT7EhJ+CC3fpQPXg
 
 sub init_db {
-    return shift->connect( 'dbi:SQLite:dbname=database.db', undef undef );
+    return shift->connect( 'dbi:SQLite:dbname=database.db', undef, undef );
 }
 
 

@@ -23,7 +23,7 @@ sub _get_form {
 
     # load current user
     $params->{current_user} = $self->current_user || undef;
-    $params->{author} = $self->current_user->column('id') || undef;
+    $params->{author} = $self->current_user->id || undef;
 
     # load id if specific actions
     $params->{id} = $self->param('id') || undef

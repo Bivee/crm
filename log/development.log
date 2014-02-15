@@ -39578,3 +39578,483 @@ syntax error at template project/list.html.ep line 30, at EOF
 [Mon Dec  2 17:59:40 2013] [debug] 404 Not Found (0.017209s, 58.109/s).
 [Tue Dec  3 10:30:45 2013] [info] Listening at "http://*:3000".
 [Tue Dec  3 10:30:50 2013] [info] Listening at "http://*:3000".
+[Fri Feb 14 23:11:12 2014] [info] Listening at "http://*:3000".
+[Fri Feb 14 23:53:43 2014] [debug] Your secret passphrase needs to be changed!!!
+[Fri Feb 14 23:53:43 2014] [debug] GET "/".
+[Fri Feb 14 23:53:43 2014] [debug] Routing to controller "BackWrite::Controller::Home" and action "index".
+[Fri Feb 14 23:53:43 2014] [debug] 302 Found (0.020601s, 48.541/s).
+[Fri Feb 14 23:53:43 2014] [debug] GET "/account/signin".
+[Fri Feb 14 23:53:43 2014] [debug] Routing to controller "BackWrite::Controller::Account" and action "signin".
+[Fri Feb 14 23:53:43 2014] [debug] Rendering template "account/signin.html.ep".
+[Fri Feb 14 23:53:43 2014] [debug] Rendering template "layouts/default.html.ep".
+[Fri Feb 14 23:53:43 2014] [debug] 200 OK (0.287753s, 3.475/s).
+[Fri Feb 14 23:53:43 2014] [debug] GET "/img/logo_small.png".
+[Fri Feb 14 23:53:43 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Fri Feb 14 23:53:43 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Fri Feb 14 23:53:43 2014] [debug] Template "not_found.development.png.ep" not found.
+[Fri Feb 14 23:53:43 2014] [debug] Template "not_found.png.ep" not found.
+[Fri Feb 14 23:53:43 2014] [debug] Template "not_found.development.html.ep" not found.
+[Fri Feb 14 23:53:43 2014] [debug] Template "not_found.html.ep" not found.
+[Fri Feb 14 23:53:43 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:53:43 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:53:43 2014] [debug] 404 Not Found (0.023756s, 42.095/s).
+[Fri Feb 14 23:53:44 2014] [debug] GET "/img/logo_small.png".
+[Fri Feb 14 23:53:44 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Fri Feb 14 23:53:44 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Fri Feb 14 23:53:44 2014] [debug] Template "not_found.development.png.ep" not found.
+[Fri Feb 14 23:53:44 2014] [debug] Template "not_found.png.ep" not found.
+[Fri Feb 14 23:53:44 2014] [debug] Template "not_found.development.html.ep" not found.
+[Fri Feb 14 23:53:44 2014] [debug] Template "not_found.html.ep" not found.
+[Fri Feb 14 23:53:44 2014] [debug] Rendering cached inline template.
+[Fri Feb 14 23:53:44 2014] [debug] Rendering cached inline template.
+[Fri Feb 14 23:53:44 2014] [debug] 404 Not Found (0.012800s, 78.125/s).
+[Fri Feb 14 23:53:49 2014] [debug] POST "/account/signin".
+[Fri Feb 14 23:53:49 2014] [debug] Routing to controller "BackWrite::Controller::Account" and action "signin".
+[Fri Feb 14 23:53:49 2014] [error] Can't locate object method "load" via package "BackWrite::Model" at /home/dvinciguerra/Desktop/crm/lib/BackWrite/Authentication.pm line 15.
+
+[Fri Feb 14 23:53:49 2014] [debug] Template "exception.development.html.ep" not found.
+[Fri Feb 14 23:53:49 2014] [debug] Template "exception.html.ep" not found.
+[Fri Feb 14 23:53:49 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:53:49 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:53:49 2014] [debug] 500 Internal Server Error (0.037250s, 26.846/s).
+[Fri Feb 14 23:55:53 2014] [debug] Your secret passphrase needs to be changed!!!
+[Fri Feb 14 23:55:53 2014] [debug] POST "/account/signin".
+[Fri Feb 14 23:55:53 2014] [debug] Routing to controller "BackWrite::Controller::Account" and action "signin".
+[Fri Feb 14 23:55:53 2014] [error] Modification of a read-only value attempted at /home/dvinciguerra/Desktop/crm/lib/BackWrite/Model.pm line 19.
+
+[Fri Feb 14 23:55:53 2014] [debug] Template "exception.development.html.ep" not found.
+[Fri Feb 14 23:55:53 2014] [debug] Template "exception.html.ep" not found.
+[Fri Feb 14 23:55:53 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:55:53 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:55:53 2014] [debug] 500 Internal Server Error (0.096565s, 10.356/s).
+[Fri Feb 14 23:56:41 2014] [debug] Your secret passphrase needs to be changed!!!
+[Fri Feb 14 23:56:41 2014] [debug] POST "/account/signin".
+[Fri Feb 14 23:56:41 2014] [debug] Routing to controller "BackWrite::Controller::Account" and action "signin".
+[Fri Feb 14 23:56:41 2014] [debug] 302 Found (0.405639s, 2.465/s).
+[Fri Feb 14 23:56:41 2014] [debug] GET "/dashboard".
+[Fri Feb 14 23:56:41 2014] [debug] Routing to controller "BackWrite::Controller::Home" and action "dashboard".
+[Fri Feb 14 23:56:41 2014] [error] Can't locate object method "load" via package "BackWrite::Model" at /home/dvinciguerra/Desktop/crm/lib/BackWrite/API/Activity.pm line 8.
+
+[Fri Feb 14 23:56:41 2014] [debug] Template "exception.development.html.ep" not found.
+[Fri Feb 14 23:56:41 2014] [debug] Template "exception.html.ep" not found.
+[Fri Feb 14 23:56:41 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:56:41 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:56:41 2014] [debug] 500 Internal Server Error (0.112986s, 8.851/s).
+[Fri Feb 14 23:56:52 2014] [debug] GET "/user".
+[Fri Feb 14 23:56:52 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "index".
+[Fri Feb 14 23:56:52 2014] [debug] 302 Found (0.003673s, 272.257/s).
+[Fri Feb 14 23:56:52 2014] [debug] GET "/user/list".
+[Fri Feb 14 23:56:52 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Fri Feb 14 23:56:52 2014] [debug] 200 OK (0.002994s, 334.001/s).
+[Fri Feb 14 23:57:33 2014] [debug] Your secret passphrase needs to be changed!!!
+[Fri Feb 14 23:57:33 2014] [debug] GET "/user/list".
+[Fri Feb 14 23:57:33 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Fri Feb 14 23:57:33 2014] [debug] Rendering template "user/list.html.ep".
+[Fri Feb 14 23:57:33 2014] [error] Can't locate object method "column" via package "BackWrite::Model::Result::User" at template user/list.html.ep line 3.
+1: % layout 'administration';
+2: % use BackWrite::I18N;
+3: % my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+4: 
+5: % content_for 'page_title' => begin
+6: <h1><%== $l->key('lbl_user_list') %> <small><%== $l->key('lbl_user_list_subtitle') %></small></h1>
+7: % end
+8: 
+
+[Fri Feb 14 23:57:33 2014] [debug] Template "exception.development.html.ep" not found.
+[Fri Feb 14 23:57:33 2014] [debug] Template "exception.html.ep" not found.
+[Fri Feb 14 23:57:33 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:57:33 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:57:33 2014] [debug] 500 Internal Server Error (0.135479s, 7.381/s).
+[Fri Feb 14 23:58:35 2014] [debug] Your secret passphrase needs to be changed!!!
+[Fri Feb 14 23:58:35 2014] [debug] GET "/user/list".
+[Fri Feb 14 23:58:35 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Fri Feb 14 23:58:35 2014] [debug] Rendering template "user/list.html.ep".
+[Fri Feb 14 23:58:36 2014] [error] Can't use string ("3") as an ARRAY ref while "strict refs" in use at template user/list.html.ep line 27.
+22:             <th><%== $l->key('lbl_created') %></th>
+23:         </tr>
+24:     </thead>    
+25:     <tbody>
+26: % if ($list){
+27: %     for my $item (@$list){
+28:         <tr>
+29:             <td>
+30:                 <a href="<%= url_for '/user/edit/'. $item->column('id') %>" title="edit user" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+31:                 <a href="<%= url_for '/user/remove/'. $item->column('id') %>" title="remove user" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+32:             </td>
+
+[Fri Feb 14 23:58:36 2014] [debug] Template "exception.development.html.ep" not found.
+[Fri Feb 14 23:58:36 2014] [debug] Template "exception.html.ep" not found.
+[Fri Feb 14 23:58:36 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:58:36 2014] [debug] Rendering inline template.
+[Fri Feb 14 23:58:36 2014] [debug] 500 Internal Server Error (0.120743s, 8.282/s).
+[Fri Feb 14 23:58:36 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:02:43 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:02:44 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:02:44 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:02:44 2014] [debug] 200 OK (0.054030s, 18.508/s).
+[Sat Feb 15 00:03:15 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:03:15 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:03:15 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:03:15 2014] [debug] 200 OK (0.045478s, 21.989/s).
+[Sat Feb 15 00:03:44 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:03:44 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:03:44 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:03:44 2014] [debug] Rendering template "user/list.html.ep".
+[Sat Feb 15 00:03:44 2014] [error] Not an ARRAY reference at template user/list.html.ep line 27.
+22:             <th><%== $l->key('lbl_created') %></th>
+23:         </tr>
+24:     </thead>    
+25:     <tbody>
+26: % if ($list){
+27: %     for my $item (@$list){
+28:         <tr>
+29:             <td>
+30:                 <a href="<%= url_for '/user/edit/'. $item->column('id') %>" title="edit user" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+31:                 <a href="<%= url_for '/user/remove/'. $item->column('id') %>" title="remove user" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+32:             </td>
+
+[Sat Feb 15 00:03:44 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:03:44 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:03:44 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:03:44 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:03:44 2014] [debug] 500 Internal Server Error (0.099346s, 10.066/s).
+[Sat Feb 15 00:04:13 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:04:13 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:04:13 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:04:13 2014] [debug] Rendering template "user/list.html.ep".
+[Sat Feb 15 00:04:13 2014] [error] Can't locate object method "column" via package "BackWrite::Model::Result::User" at template user/list.html.ep line 30.
+25:     <tbody>
+26: % if (scalar $list->all){
+27: %     for my $item ($list->all){
+28:         <tr>
+29:             <td>
+30:                 <a href="<%= url_for '/user/edit/'. $item->column('id') %>" title="edit user" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+31:                 <a href="<%= url_for '/user/remove/'. $item->column('id') %>" title="remove user" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+32:             </td>
+33:             <td><a href="<%= url_for '/user/view/'. $item->column('id') %>" title="view user details" class="btn btn-link"><%= $item->column('name') %></a></td>
+34:             <td><%= $item->column('email') %></td>
+35:             <td><%= $item->column('role') eq 'admin'? 'Yes': 'No' %></td>
+
+[Sat Feb 15 00:04:13 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:04:13 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:04:13 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:04:13 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:04:13 2014] [debug] 500 Internal Server Error (0.108892s, 9.183/s).
+[Sat Feb 15 00:05:33 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:05:33 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:05:33 2014] [debug] Rendering cached template "user/list.html.ep".
+[Sat Feb 15 00:05:33 2014] [error] Can't locate object method "column" via package "BackWrite::Model::Result::User" at template user/list.html.ep line 30.
+25:     <tbody>
+26: % if (scalar $list->all){
+27: %     for my $item ($list->all){
+28:         <tr>
+29:             <td>
+30:                 <a href="<%= url_for '/user/edit/'. $item->column('id') %>" title="edit user" class="btn btn-default"><i class="icon-edit"></i></a>&nbsp;
+31:                 <a href="<%= url_for '/user/remove/'. $item->column('id') %>" title="remove user" class="btn btn-default"><i class="icon-remove"></i></a>&nbsp;
+32:             </td>
+33:             <td><a href="<%= url_for '/user/view/'. $item->column('id') %>" title="view user details" class="btn btn-link"><%= $item->column('name') %></a></td>
+34:             <td><%= $item->column('email') %></td>
+35:             <td><%= $item->column('role') eq 'admin'? 'Yes': 'No' %></td>
+
+[Sat Feb 15 00:05:33 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:05:33 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:05:33 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:05:33 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:05:33 2014] [debug] 500 Internal Server Error (0.034779s, 28.753/s).
+[Sat Feb 15 00:05:35 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:05:35 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:05:35 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:05:35 2014] [debug] Rendering template "user/list.html.ep".
+[Sat Feb 15 00:05:35 2014] [error] Can't locate DateTime/Format/SQLite.pm in @INC (@INC contains: /home/dvinciguerra/Desktop/crm/lib /usr/local/bin/../lib /home/dvinciguerra/perl5/lib /home/dvinciguerra/perl5/lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/perl/5.14.2/Class/C3/Componentised.pm line 150.
+145:     return if ( *{"${f_class}::$_"}{CODE} );
+146:   }
+147: 
+148:   # require always returns true on success
+149:   # ill-behaved modules might very well obliterate $_
+150:   eval { local $_; require($file) } or do {
+151: 
+152:     $@ = "Invalid class name '$f_class'" if $f_class =~ $invalid_class;
+153: 
+154:     if ($class->can('throw_exception')) {
+155:       $class->throw_exception($@);
+
+[Sat Feb 15 00:05:35 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:05:35 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:05:35 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:05:35 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:05:35 2014] [debug] 500 Internal Server Error (0.131144s, 7.625/s).
+[Sat Feb 15 00:05:37 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:05:37 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:05:37 2014] [debug] Rendering cached template "user/list.html.ep".
+[Sat Feb 15 00:05:37 2014] [error] Can't locate DateTime/Format/SQLite.pm in @INC (@INC contains: /home/dvinciguerra/Desktop/crm/lib /usr/local/bin/../lib /home/dvinciguerra/perl5/lib /home/dvinciguerra/perl5/lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/perl/5.14.2/Class/C3/Componentised.pm line 150.
+145:     return if ( *{"${f_class}::$_"}{CODE} );
+146:   }
+147: 
+148:   # require always returns true on success
+149:   # ill-behaved modules might very well obliterate $_
+150:   eval { local $_; require($file) } or do {
+151: 
+152:     $@ = "Invalid class name '$f_class'" if $f_class =~ $invalid_class;
+153: 
+154:     if ($class->can('throw_exception')) {
+155:       $class->throw_exception($@);
+
+[Sat Feb 15 00:05:37 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:05:37 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:05:37 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:05:37 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:05:37 2014] [debug] 500 Internal Server Error (0.034189s, 29.249/s).
+[Sat Feb 15 00:05:38 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:05:38 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:05:38 2014] [debug] Rendering cached template "user/list.html.ep".
+[Sat Feb 15 00:05:38 2014] [error] Can't locate DateTime/Format/SQLite.pm in @INC (@INC contains: /home/dvinciguerra/Desktop/crm/lib /usr/local/bin/../lib /home/dvinciguerra/perl5/lib /home/dvinciguerra/perl5/lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/local/share/perl/5.14.2/Class/C3/Componentised.pm line 150.
+145:     return if ( *{"${f_class}::$_"}{CODE} );
+146:   }
+147: 
+148:   # require always returns true on success
+149:   # ill-behaved modules might very well obliterate $_
+150:   eval { local $_; require($file) } or do {
+151: 
+152:     $@ = "Invalid class name '$f_class'" if $f_class =~ $invalid_class;
+153: 
+154:     if ($class->can('throw_exception')) {
+155:       $class->throw_exception($@);
+
+[Sat Feb 15 00:05:38 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:05:38 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:05:38 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:05:38 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:05:38 2014] [debug] 500 Internal Server Error (0.048098s, 20.791/s).
+[Sat Feb 15 00:06:34 2014] [debug] GET "/user/list".
+[Sat Feb 15 00:06:34 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "list".
+[Sat Feb 15 00:06:34 2014] [debug] Rendering cached template "user/list.html.ep".
+[Sat Feb 15 00:06:34 2014] [debug] Rendering template "layouts/administration.html.ep".
+[Sat Feb 15 00:06:34 2014] [debug] 200 OK (0.066642s, 15.006/s).
+[Sat Feb 15 00:06:34 2014] [debug] GET "/img/logo_small.png".
+[Sat Feb 15 00:06:34 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Sat Feb 15 00:06:34 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Sat Feb 15 00:06:34 2014] [debug] Template "not_found.development.png.ep" not found.
+[Sat Feb 15 00:06:34 2014] [debug] Template "not_found.png.ep" not found.
+[Sat Feb 15 00:06:34 2014] [debug] Template "not_found.development.html.ep" not found.
+[Sat Feb 15 00:06:34 2014] [debug] Template "not_found.html.ep" not found.
+[Sat Feb 15 00:06:34 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:06:34 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:06:35 2014] [debug] 404 Not Found (0.040339s, 24.790/s).
+[Sat Feb 15 00:07:36 2014] [debug] GET "/help/user".
+[Sat Feb 15 00:07:36 2014] [debug] Routing to controller "BackWrite::Controller::Help" and action "user".
+[Sat Feb 15 00:07:36 2014] [debug] Action not found in controller.
+[Sat Feb 15 00:07:36 2014] [debug] Rendering template "help/user.html.ep".
+[Sat Feb 15 00:07:36 2014] [debug] 200 OK (0.018136s, 55.139/s).
+[Sat Feb 15 00:07:44 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:07:44 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:07:44 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:07:44 2014] [error] Can't locate object method "column" via package "BackWrite::Model::Result::User" at template user/form.html.ep line 3.
+1: % layout 'administration';
+2: % use BackWrite::I18N;
+3: % my $l = BackWrite::I18N->load( current_user->column('lang') || 'en' );
+4: 
+5: % content_for 'page_title' => begin
+6: <h1><%== $l->key('lbl_user_form') %> <small><%== $l->key('lbl_user_form_subtitle') %></small></h1>
+7: % end
+8: 
+
+[Sat Feb 15 00:07:44 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:07:44 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:07:44 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:07:44 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:07:44 2014] [debug] 500 Internal Server Error (0.068109s, 14.682/s).
+[Sat Feb 15 00:08:58 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:08:59 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:08:59 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:08:59 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:08:59 2014] [error] Can't locate object method "column" via package "DBIx::Class::ResultSet" at template user/form.html.ep line 18.
+13: </div>
+14: <br />
+15: <form method="post">
+16:     <div class="form-group">
+17:         <label><%== $l->key('lbl_name') %></label>
+18:         <input type="text" name="name" class="form-control" value="<%= $model? $model->column('name'): '' %>" />
+19:     </div>
+20:     <div class="form-group">
+21:         <label><%== $l->key('lbl_email') %></label>
+22:         <input type="text" name="email" class="form-control" value="<%= $model? $model->column('email'): '' %>" />
+23:     </div>
+
+[Sat Feb 15 00:08:59 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:08:59 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:08:59 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:08:59 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:08:59 2014] [debug] 500 Internal Server Error (0.099393s, 10.061/s).
+[Sat Feb 15 00:10:20 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:10:20 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:10:20 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:10:20 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:10:20 2014] [error] Can't locate object method "name" via package "DBIx::Class::ResultSet" at template user/form.html.ep line 18.
+13: </div>
+14: <br />
+15: <form method="post">
+16:     <div class="form-group">
+17:         <label><%== $l->key('lbl_name') %></label>
+18:         <input type="text" name="name" class="form-control" value="<%= $model? $model->name: '' %>" />
+19:     </div>
+20:     <div class="form-group">
+21:         <label><%== $l->key('lbl_email') %></label>
+22:         <input type="text" name="email" class="form-control" value="<%= $model? $model->email: '' %>" />
+23:     </div>
+
+[Sat Feb 15 00:10:20 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:10:20 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:10:20 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:10:20 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:10:20 2014] [debug] 500 Internal Server Error (0.100667s, 9.934/s).
+[Sat Feb 15 00:10:21 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:10:21 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:10:21 2014] [debug] Rendering cached template "user/form.html.ep".
+[Sat Feb 15 00:10:21 2014] [error] Can't locate object method "name" via package "DBIx::Class::ResultSet" at template user/form.html.ep line 18.
+13: </div>
+14: <br />
+15: <form method="post">
+16:     <div class="form-group">
+17:         <label><%== $l->key('lbl_name') %></label>
+18:         <input type="text" name="name" class="form-control" value="<%= $model? $model->name: '' %>" />
+19:     </div>
+20:     <div class="form-group">
+21:         <label><%== $l->key('lbl_email') %></label>
+22:         <input type="text" name="email" class="form-control" value="<%= $model? $model->email: '' %>" />
+23:     </div>
+
+[Sat Feb 15 00:10:21 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:10:21 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:10:21 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:10:21 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:10:21 2014] [debug] 500 Internal Server Error (0.029897s, 33.448/s).
+[Sat Feb 15 00:11:13 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:11:13 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:11:13 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:11:13 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:11:13 2014] [debug] Rendering template "layouts/administration.html.ep".
+[Sat Feb 15 00:11:13 2014] [debug] 200 OK (0.068442s, 14.611/s).
+[Sat Feb 15 00:11:13 2014] [debug] GET "/img/logo_small.png".
+[Sat Feb 15 00:11:13 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Sat Feb 15 00:11:13 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Sat Feb 15 00:11:13 2014] [debug] Template "not_found.development.png.ep" not found.
+[Sat Feb 15 00:11:13 2014] [debug] Template "not_found.png.ep" not found.
+[Sat Feb 15 00:11:13 2014] [debug] Template "not_found.development.html.ep" not found.
+[Sat Feb 15 00:11:13 2014] [debug] Template "not_found.html.ep" not found.
+[Sat Feb 15 00:11:13 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:11:13 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:11:13 2014] [debug] 404 Not Found (0.040098s, 24.939/s).
+[Sat Feb 15 00:12:11 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:12:11 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:12:11 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:12:11 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:12:11 2014] [debug] Rendering template "layouts/administration.html.ep".
+[Sat Feb 15 00:12:11 2014] [debug] 200 OK (0.068501s, 14.598/s).
+[Sat Feb 15 00:12:11 2014] [debug] GET "/img/logo_small.png".
+[Sat Feb 15 00:12:11 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Sat Feb 15 00:12:11 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Sat Feb 15 00:12:11 2014] [debug] Template "not_found.development.png.ep" not found.
+[Sat Feb 15 00:12:11 2014] [debug] Template "not_found.png.ep" not found.
+[Sat Feb 15 00:12:11 2014] [debug] Template "not_found.development.html.ep" not found.
+[Sat Feb 15 00:12:11 2014] [debug] Template "not_found.html.ep" not found.
+[Sat Feb 15 00:12:11 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:12:11 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:12:11 2014] [debug] 404 Not Found (0.039626s, 25.236/s).
+[Sat Feb 15 00:12:13 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:12:13 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:12:13 2014] [debug] Rendering cached template "user/form.html.ep".
+[Sat Feb 15 00:12:13 2014] [debug] Rendering cached template "layouts/administration.html.ep".
+[Sat Feb 15 00:12:13 2014] [debug] 200 OK (0.010315s, 96.946/s).
+[Sat Feb 15 00:12:13 2014] [debug] GET "/img/logo_small.png".
+[Sat Feb 15 00:12:13 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Sat Feb 15 00:12:13 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Sat Feb 15 00:12:13 2014] [debug] Template "not_found.development.png.ep" not found.
+[Sat Feb 15 00:12:13 2014] [debug] Template "not_found.png.ep" not found.
+[Sat Feb 15 00:12:13 2014] [debug] Template "not_found.development.html.ep" not found.
+[Sat Feb 15 00:12:13 2014] [debug] Template "not_found.html.ep" not found.
+[Sat Feb 15 00:12:13 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:12:13 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:12:13 2014] [debug] 404 Not Found (0.010228s, 97.771/s).
+[Sat Feb 15 00:13:08 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:13:08 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:13:08 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:13:08 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:13:08 2014] [error] syntax error at template user/form.html.ep line 6, near "'lbl_user_form') "
+syntax error at template user/form.html.ep line 6, near "'lbl_user_form_subtitle') "
+syntax error at template user/form.html.ep line 17, near "'lbl_name') "
+syntax error at template user/form.html.ep line 21, near "'lbl_email') "
+syntax error at template user/form.html.ep line 25, near "'lbl_password') "
+syntax error at template user/form.html.ep line 29, near "'lbl_about') "
+syntax error at template user/form.html.ep line 33, near "'lbl_language') "
+syntax error at template user/form.html.ep line 35, near "'lst_user_language')"
+syntax error at template user/form.html.ep line 36, near "'lst_user_language')"
+syntax error at template user/form.html.ep line 38, near "} 
+$_M "
+template user/form.html.ep has too many errors.
+
+[Sat Feb 15 00:13:08 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:13:08 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:13:08 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:13:08 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:13:08 2014] [debug] 500 Internal Server Error (0.090089s, 11.100/s).
+[Sat Feb 15 00:14:12 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:14:12 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:14:12 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:14:12 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:14:12 2014] [error] syntax error at template user/form.html.ep line 6, near "'lbl_user_form') "
+syntax error at template user/form.html.ep line 6, near "'lbl_user_form_subtitle') "
+1: % layout 'administration';
+2: % use BackWrite::I18N;
+3: % my $l = BackWrite::I18N->load( current_user->lang || 'en' );
+4: 
+5: % content_for 'page_title' => begin
+6: <h1><%== l 'lbl_user_form') %> <small><%== l 'lbl_user_form_subtitle') %></small></h1>
+7: % end
+8: 
+9: <div class="well well-sm text-right">
+10:     <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== l 'btn_back' %></a>&nbsp;
+11:     <a href="<%= url_for '/user/list' %>" class="btn btn-danger btn-xs"><i class="icon-list"></i>&nbsp;<%== l 'btn_back_list' %></a>&nbsp;
+
+[Sat Feb 15 00:14:12 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:14:12 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:14:12 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:14:12 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:14:12 2014] [debug] 500 Internal Server Error (0.093773s, 10.664/s).
+[Sat Feb 15 00:14:13 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:14:13 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:14:13 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:14:13 2014] [error] syntax error at template user/form.html.ep line 6, near "'lbl_user_form') "
+syntax error at template user/form.html.ep line 6, near "'lbl_user_form_subtitle') "
+1: % layout 'administration';
+2: % use BackWrite::I18N;
+3: % my $l = BackWrite::I18N->load( current_user->lang || 'en' );
+4: 
+5: % content_for 'page_title' => begin
+6: <h1><%== l 'lbl_user_form') %> <small><%== l 'lbl_user_form_subtitle') %></small></h1>
+7: % end
+8: 
+9: <div class="well well-sm text-right">
+10:     <a href="javascript:history.back(-1);" class="btn btn-default btn-xs" style="float:left;"><i class="icon-arrow-left"></i>&nbsp;<%== l 'btn_back' %></a>&nbsp;
+11:     <a href="<%= url_for '/user/list' %>" class="btn btn-danger btn-xs"><i class="icon-list"></i>&nbsp;<%== l 'btn_back_list' %></a>&nbsp;
+
+[Sat Feb 15 00:14:13 2014] [debug] Template "exception.development.html.ep" not found.
+[Sat Feb 15 00:14:13 2014] [debug] Template "exception.html.ep" not found.
+[Sat Feb 15 00:14:13 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:14:13 2014] [debug] Rendering cached inline template.
+[Sat Feb 15 00:14:13 2014] [debug] 500 Internal Server Error (0.030676s, 32.599/s).
+[Sat Feb 15 00:14:34 2014] [debug] Your secret passphrase needs to be changed!!!
+[Sat Feb 15 00:14:34 2014] [debug] GET "/user/create".
+[Sat Feb 15 00:14:34 2014] [debug] Routing to controller "BackWrite::Controller::User" and action "create".
+[Sat Feb 15 00:14:34 2014] [debug] Rendering template "user/form.html.ep".
+[Sat Feb 15 00:14:34 2014] [debug] Rendering template "layouts/administration.html.ep".
+[Sat Feb 15 00:14:34 2014] [debug] 200 OK (0.070127s, 14.260/s).
+[Sat Feb 15 00:14:34 2014] [debug] GET "/img/logo_small.png".
+[Sat Feb 15 00:14:34 2014] [debug] Controller "BackWrite::Controller::Img" does not exist.
+[Sat Feb 15 00:14:34 2014] [debug] Template "img/logo_small.png.ep" not found.
+[Sat Feb 15 00:14:34 2014] [debug] Template "not_found.development.png.ep" not found.
+[Sat Feb 15 00:14:34 2014] [debug] Template "not_found.png.ep" not found.
+[Sat Feb 15 00:14:34 2014] [debug] Template "not_found.development.html.ep" not found.
+[Sat Feb 15 00:14:34 2014] [debug] Template "not_found.html.ep" not found.
+[Sat Feb 15 00:14:34 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:14:34 2014] [debug] Rendering inline template.
+[Sat Feb 15 00:14:34 2014] [debug] 404 Not Found (0.023505s, 42.544/s).
